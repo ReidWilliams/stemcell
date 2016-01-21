@@ -66,6 +66,10 @@ module.exports = {
       {
         test: /\.json$/,
         loader: 'json'
+      },
+      // for bootstrap (see https://github.com/theodybrothers/webpack-bootstrap)
+      { 
+        test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, loader: "file" 
       }
     ]
   },
