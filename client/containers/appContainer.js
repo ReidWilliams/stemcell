@@ -12,7 +12,7 @@ export default class appContainer extends Component {
       <div>
         == app container rendered ==
         <br/>
-        {this.props.children}
+
       </div>
     )
   }
