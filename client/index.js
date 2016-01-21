@@ -15,8 +15,7 @@ import getRoutes from './config/routes'
 import currentUserReducer from './reducers/currentUserReducers'
 import appErrorReducer from './reducers/appErrorReducers'
 
-// bootstrap and other css
-import 'bootstrap/dist/css/bootstrap.css' //FIXME
+// import css
 import './styles/css/style-home.css'
 
 const appReducer = combineReducers({

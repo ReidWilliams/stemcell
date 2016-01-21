@@ -6,23 +6,23 @@ Add Bits + Blocks Fonts
 
 @font-face {
     font-family: 'Circular';
-    src: url('/public/styles/fonts/CircularStd/CircularStd-Book.otf');
+    src: url('../assets/fonts/CircularStd-Book.otf');
 }
 
 @font-face {
     font-family: 'Circular';
-    src: url('/public/styles/fonts/CircularStd/CircularStd-Black.otf');
+    src: url('../assets/fonts/CircularStd-Black.otf');
     font-weight: bold;
 }
 
 @font-face {
     font-family: 'Sentinel';
-    src: url('/public/styles/fonts/Sentinel/Sentinel-Book.otf');
+    src: url('../assets/fonts/Sentinel-Book.otf');
 }
 
 @font-face {
     font-family: 'Sentinel';
-    src: url('/public/styles/fonts/Sentinel/Sentinel-BookItalic.otf');
+    src: url('../assets/fonts/Sentinel-BookItalic.otf');
     font-weight: italic;
 }
 

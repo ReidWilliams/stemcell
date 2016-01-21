@@ -15,7 +15,7 @@ module.exports = {
       colors: true 
     },
     watchOptions: { 
-      aggregateTimeout: 1000, poll: 1000 
+      aggregateTimeout: 500, poll: 500 
     }
   },
   HOT: {
