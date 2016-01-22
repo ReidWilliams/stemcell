@@ -25,7 +25,9 @@ function mapDispatchToProps(dispatch) {
 class LogInContainer extends Component {
   render() {
     return(
-      <LogInFormComponent { ...this.props } />
+      <div>
+        <LogInFormComponent { ...this.props } />
+      </div>
     )
   }
 }

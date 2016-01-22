@@ -16,21 +16,12 @@ class NavbarItem extends Component {
 
 export default class NavbarComponent extends Component {
   render() {
-  	let items = [
-  		{ text: "FOO",
-  			href: "/",
-  			active: true
-  		},
-  		{	text: "BAR",
-  			href: "http://ideo.com",
-  			active: false
-  		}];
     return(
      	<nav className="navbar navbar-default" role="navigation">
 	  		<div className="container-fluid">
 		    	<div className="collapse navbar-collapse">
 		      	<ul className="nav navbar-nav">
-		      		{items.map(function(item) {
+		      		{this.props.items.map(function(item) {
 		      			return <NavbarItem active={item.active} text={item.text} href={item.href} />
 		      		})}
 		      	</ul>
