@@ -5,7 +5,7 @@ import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
 import { Link } from 'react-router'
 
-import LandingContainer1 from './landingContainer1'
+import LandingPart1 from './LandingPart1'
 import NavbarContainer from './navbarContainer'
 
 export default class LandingContainer extends Component {
@@ -13,7 +13,7 @@ export default class LandingContainer extends Component {
     return (
       <div>
         <NavbarContainer/> 
-        <LandingContainer1/>
+        <LandingPart1/>
       </div>
     )
   }

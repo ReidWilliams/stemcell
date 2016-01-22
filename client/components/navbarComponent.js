@@ -1,7 +1,5 @@
 'use strict'
 
-// This navbar component assumes bootstrap css classes are available
-
 // Globals
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
