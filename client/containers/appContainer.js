@@ -9,10 +9,11 @@ import { Link } from 'react-router'
 export default class appContainer extends Component {
   render() {
     return(
+    	// EXPLAIN why this.props.children here
       <div>
         == app container rendered ==
         <br/>
-
+        {this.props.children}
       </div>
     )
   }
