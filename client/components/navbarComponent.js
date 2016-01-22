@@ -6,7 +6,7 @@ import ReactDOM from 'react-dom'
 import { Link } from 'react-router'
 
 
-export default class navbarComponent extends Component {
+export default class NavbarComponent extends Component {
   render() {
     return(
      	<nav className="navbar navbar-default" role="navigation">

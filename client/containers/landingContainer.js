@@ -6,13 +6,13 @@ import ReactDOM from 'react-dom'
 import { Link } from 'react-router'
 
 import LandingPart1 from './LandingPart1'
-import NavbarContainer from './navbarContainer'
+import NavbarComponent from './../components/bootstrapNavbarComponent'
 
 export default class LandingContainer extends Component {
   render() {
     return (
       <div>
-        <NavbarContainer/> 
+        <NavbarComponent/> 
         <LandingPart1/>
       </div>
     )
