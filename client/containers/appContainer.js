@@ -11,8 +11,6 @@ export default class appContainer extends Component {
     return(
     	// EXPLAIN why this.props.children here
       <div>
-        == app container rendered ==
-        <br/>
         {this.props.children}
       </div>
     )

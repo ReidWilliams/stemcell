@@ -6,7 +6,7 @@ import ReactDOM from 'react-dom'
 import { Link } from 'react-router'
 
 
-export default class LandingContainer1 extends Component {
+export default class LandingPart1 extends Component {
   render() {
     let imgStyle = {
       width: 'auto',
