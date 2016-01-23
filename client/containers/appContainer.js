@@ -9,19 +9,27 @@ import NavbarComponent from './../components/bootstrapNavbarComponent'
 
 export default class appContainer extends Component {
   render() {
-  	let items = [
-  		{ text: "HOME",
-  			href: "/",
-  			active: true
-  		},
-  		{	text: "SIGN IN",
-  			href: "login",
-  			active: false
-  		}]
+
+  	// names and routes for navigation bar
+  	// FIXME: DRY, right new we're specifying names and routes for navbar here
+  	// and routes and containers separately in routes.js
+	  let navRoutes = [
+	    {
+	      text: 'HOME',
+	      href: '/'
+	    },
+	    {
+	      text: 'LOGIN',
+	      href: '/login'
+	    }
+	  ]
+
+	  let activeRoute = this.props.location.pathname
+
     return(
     	// EXPLAIN why this.props.children here
       <div>
-      	<NavbarComponent items={items}/> 
+      	<NavbarComponent items={navRoutes} activeRoute={activeRoute} /> 
         {this.props.children}
       </div>
     )

@@ -15,7 +15,6 @@ import logInContainer from './../containers/logInContainer'
 import signUpContainer from './../containers/signUpContainer'
 import { currentUserFetch } from './../actions/userActions'
 
-
 module.exports = (appStore) => {
   assert(_.isObject(appStore))
 
