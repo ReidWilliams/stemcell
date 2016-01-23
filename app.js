@@ -14,7 +14,7 @@ import url from 'url'
 // Note: always bring the config in first
 import config from './server/config/config'
 import dbUtils from './server/utils/dbUtils'
-import serviceRegistry from './server/services/serviceRegistry'
+import loadServices from './server/services/services'
 
 import webpackConfig from './webpack.config'
 import webpackDevMiddleware from 'webpack-dev-middleware'
@@ -61,7 +61,7 @@ app.use(webpackHotMiddleware(webpackCompiler, webpackMiddlewareConfig.HOT))
 
 
 // Load API Routes
-serviceRegistry.loadServices(app)
+loadServices(app)
 
 
 // Handle static files
