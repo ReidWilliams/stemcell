@@ -21,7 +21,7 @@ export default class LandingPart1 extends Component {
             <h2>The Bits + Blocks coLAB is putting your professional certifications on the blockchain.</h2>`
           </div>
           <div className="col-md-6">
-            <img src="/public/styles/images/home/sash_fill.png" className="img-responsive center-block" style={imgStyle}></img>
+            <img src="/public/assets/images/home/sash_fill.png" className="img-responsive center-block" style={imgStyle}></img>
           </div>
         </div>
       </div>

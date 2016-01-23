@@ -16,7 +16,7 @@ import currentUserReducer from './reducers/currentUserReducers'
 import appErrorReducer from './reducers/appErrorReducers'
 
 // import css
-import './styles/css/style-home.css'
+import './styles/main.scss'
 
 const appReducer = combineReducers({
   form: formReducer,

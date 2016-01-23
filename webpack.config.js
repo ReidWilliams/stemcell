@@ -45,6 +45,11 @@ module.exports = {
         test: /\.css$/,
         loaders: ['style', 'css']
       },
+      // Compile Sass to CSS
+      {
+        test: /\.scss$/,
+        loaders: ["style", "css", "sass"]
+      },
       // ES6
       {
         test: /\.(js|jsx)$/,
