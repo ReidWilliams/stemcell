@@ -12,7 +12,7 @@ let userSchema = new mongoose.Schema({
   },
   
   email: {
-    email: { type: String, default: '', required: true, unique: true, lowercase: true, trim: true },
+    email: { type: String, default: '', required: true, lowercase: true, trim: true },
     verified: { type: Boolean, default: false },
     verifyCode: { type: String },
     verifySentAt: { type: Date },
@@ -36,7 +36,7 @@ let userSchema = new mongoose.Schema({
     viaEmail: { type: Boolean, default: true }
     // Other means of communications?
   }
-});
+})
 
 
 userSchema.methods = {
@@ -58,7 +58,7 @@ userSchema.methods = {
     }
   }
 
-};
+}
 
 userSchema.index({ 'email.email': 1 }, { unique: true });
 

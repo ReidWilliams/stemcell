@@ -45,6 +45,11 @@ module.exports = {
         test: /\.css$/,
         loaders: ['style', 'css']
       },
+      // Compile Sass to CSS
+      {
+        test: /\.scss$/,
+        loaders: ["style", "css", "sass"]
+      },
       // ES6
       {
         test: /\.(js|jsx)$/,
@@ -66,6 +71,10 @@ module.exports = {
       {
         test: /\.json$/,
         loader: 'json'
+      },
+      // for bootstrap (see https://github.com/theodybrothers/webpack-bootstrap)
+      { 
+        test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, loader: "file" 
       }
     ]
   },

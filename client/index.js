@@ -3,40 +3,50 @@
 // Globals
 import React from 'react'
 import ReactDOM from 'react-dom'
-import Routes from './config/routes'
-import { Router, BrowserHistory } from 'react-router'
+import { Router } from 'react-router'
 import { Provider } from 'react-redux'
-import { createHistory } from 'history'
-
+import { syncReduxAndRouter, routeReducer } from 'redux-simple-router'
 import thunkMiddleware from 'redux-thunk'
+import { reducer as formReducer } from 'redux-form';
+import { combineReducers, createStore, applyMiddleware } from 'redux'
 
-import rootReducer from './auth/reducers/signUpReducers'
-import { attemptSignUp } from './auth/actions/signUpActions'
+import { history } from './config/history'
+import getRoutes from './config/routes'
+import currentUserReducer from './reducers/currentUserReducers'
+import appErrorReducer from './reducers/appErrorReducers'
 
+// import css
+import './styles/main.scss'
 
-// import { Provider } from 'react-redux'
-import { createStore, applyMiddleware } from 'redux'
+const appReducer = combineReducers({
+  form: formReducer,
+  appErrors: appErrorReducer,
+  currentUser: currentUserReducer,
+  routing: routeReducer
+})
 
 const createStoreWithMiddleware = applyMiddleware(
-  thunkMiddleware, // lets us dispatch() functions
+  thunkMiddleware
 )(createStore)
 
-const store = createStoreWithMiddleware(rootReducer)
+const appStore = createStoreWithMiddleware(appReducer)
 
-
-
-// store.dispatch(attemptSignUp({ email: 'sdf', password: 'dsfsd' }))
-
-
-
-
+syncReduxAndRouter(history, appStore)
 
 ReactDOM.render(
-  <Provider store={ store }>
-    <Router history={ createHistory() }>
-      { Routes }
+  <Provider store={ appStore }>
+    <Router history={ history }>
+      { getRoutes(appStore) }
     </Router>
   </Provider>, 
   document.getElementById('root')
-);
+)
 
+
+
+// Notes:
+// use this: https://getsentry.com/welcome/
+// Regarding smart and dumb components
+// https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0
+// https://github.com/rackt/redux-simple-router/blob/1.0.2/examples/basic/app.js
+// https://github.com/acdlite/flux-standard-action
