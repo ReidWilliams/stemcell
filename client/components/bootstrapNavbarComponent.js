@@ -1,6 +1,5 @@
 'use strict'
 
-
 /* 
 	Simple horizontal navigation bar that uses bootstrap navbar classes. You'll want to include
 	the bootstrap css or write your own css classes with the same names.
