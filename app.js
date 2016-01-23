@@ -74,6 +74,7 @@ let sendClient = (res) => {
   return res.sendFile(path.join(PUBLIC_PATH + '/index.html'))
 }
 
+// FIXME: consolidate these and in client routing. We're specifying routes in too many places.
 app.get('/', (req, res) => { sendClient(res) })
 app.get('/signup', (req, res) => { sendClient(res) })
 app.get('/login', (req, res) => { sendClient(res) })
