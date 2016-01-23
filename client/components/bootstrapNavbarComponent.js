@@ -1,5 +1,6 @@
 'use strict'
 
+
 /* 
 	Simple horizontal navigation bar that uses bootstrap navbar classes. You'll want to include
 	the bootstrap css or write your own css classes with the same names.
@@ -19,7 +20,6 @@
 
 // Globals
 import React, { Component } from 'react'
-import ReactDOM from 'react-dom'
 import { Link } from 'react-router'
 
 class NavbarItem extends Component {
@@ -27,7 +27,11 @@ class NavbarItem extends Component {
 		let activeClass = (this.props.activeRoute === this.props.href)? "active" : "inactive"
 		console.log(this.props.active)
 		return (
-			<li className={activeClass}><a href={this.props.href}>{this.props.text}</a></li>
+			<li className={activeClass}>
+				<Link to={this.props.href}>
+				{this.props.text}
+				</Link>
+			</li>
 		)
 	}
 }
