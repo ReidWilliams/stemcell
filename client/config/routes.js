@@ -8,10 +8,10 @@ import { Provider } from 'react-redux'
 import { createStore, combineReducers } from 'redux'
 import { Router, Route, IndexRoute } from 'react-router'
 
-import appContainer from './../containers/appContainer'
+import AppContainer from './../containers/AppContainer'
 import dashboardContainer from './../containers/dashboardContainer'
-import landingContainer from './../containers/landingContainer'
-import logInContainer from './../containers/logInContainer'
+import LandingContainer from './../containers/LandingContainer'
+import LoginContainer from './../containers/LoginContainer'
 import signUpContainer from './../containers/signUpContainer'
 import { currentUserFetch } from './../actions/userActions'
 
@@ -43,11 +43,10 @@ module.exports = (appStore) => {
   }
 
   return (
-    <Route path="/" component={ appContainer }>
-      <IndexRoute component={ landingContainer } />
+    <Route path="/" component={ AppContainer }>
+      <IndexRoute component={ LandingContainer } />
       <Route path="signup" component={ signUpContainer } />
-      <Route path="login" component={ logInContainer } />
-      
+      <Route path="login" component={ LoginContainer } />
       <Route onEnter={ ensureAuthenticated } >
         <Route path="dashboard" component={ dashboardContainer } />
       </Route>

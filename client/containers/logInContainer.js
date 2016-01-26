@@ -5,7 +5,7 @@ import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
 import { connect } from 'react-redux'
 
-import LogInFormComponent from './../components/LogInFormComponent'
+import LoginFormComponent from './../components/BootstrapLoginFormComponent'
 import * as actions from './../actions/logInActions'
 
 
@@ -25,11 +25,14 @@ function mapDispatchToProps(dispatch) {
 class LogInContainer extends Component {
   render() {
     return(
-      <div>
-        <LogInFormComponent { ...this.props } />
+      <div className="container">
+        <div className="col-sm-6 col-sm-offset-3">
+          <LoginFormComponent { ...this.props } />
+        </div>
       </div>
     )
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(LogInContainer)
+// export default connect(mapStateToProps, mapDispatchToProps)(LogInContainer)
+export default LogInContainer
