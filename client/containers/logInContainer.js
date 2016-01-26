@@ -18,25 +18,23 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    submit: (pendingUser) => dispatch(actions.logIn(pendingUser))
+    // pass this as a prop to component. It'll get called with an object
+    // when the form is submitted
+    containerSubmit: (formObject) => dispatch(actions.logIn(formObject.username, formObject.password))
   }
 }
 
 class LoginContainer extends Component {
   render() {
-    let submit = function(email, password) {
-      console.log(email + ' ' + password)
-    }
-
     return(
       <div className="container">
         <div className="col-sm-6 col-sm-offset-3">
-          <LoginFormComponent submit={submit} />
+          <LoginFormComponent { ...this.props } />
         </div>
       </div>
     )
   }
 }
 
-// export default connect(mapStateToProps, mapDispatchToProps)(LoginContainer)
-export default LoginContainer
+export default connect(mapStateToProps, mapDispatchToProps)(LoginContainer)
+// export default LoginContainer

@@ -39,17 +39,20 @@ export function logInError(err) {
   }
 }
 
-export function logIn(pendingUser) {
-  const body = {
-    email: pendingUser.email,
-    password: pendingUser.password
+// Action creator. Returns a function of dispatch. This is the pattern
+// when using thunk middleware for dispatching async actions.
+export function logIn(username, password) {
+  const payload = {
+    username: username,
+    password: password
   }
 
+  // return a function that takes a dispatch object
   return (dispatch) => {
-    dispatch(logInStart(pendingUser))
+    dispatch(logInStart(payload))
     dispatch(unsetAppError(ERRORS.LOG_IN))
 
-    return fPost(ENDPOINTS.LOG_IN, body)
+    return fPost(ENDPOINTS.LOG_IN, payload)
       .then(fJSON)
       .then((currentUser) => {
         dispatch(logInSuccess(currentUser))

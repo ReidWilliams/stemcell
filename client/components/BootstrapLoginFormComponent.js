@@ -1,12 +1,8 @@
 'use strict'
 
 /*
-  Really simple Login form. Uses email and password inputs that are uncontrolled, meaning
-  we don't setState (or propogate state) when these fields change. Instead we only propogate 
-  state when submit button is pressed.
-
-  Drawback is that we can't change email or password values in response to server side events or any
-  events outside of user interaction.
+  Really simple form styled with bootstrap css classes. Uses redux-form which automatically propogates
+  each input field to the global redux state. 
 */
 
 // Globals
@@ -37,32 +33,24 @@ import { Link } from 'react-router'
 
 
 class LoginFormComponent extends Component {
-  constructor() {
-    super()
-    this.handleSubmit = this.handleSubmit.bind(this)
-  }
-
-  handleSubmit(event) {
-    let email = event.target.form[0].value
-    let password = event.target.form[1].value
-    this.props.submit(email, password)
-  }
-
   render() {
-    // const { fields: { email, password }, handleSubmit, submit } = this.props
+    const { fields: { username, password }, handleSubmit, containerSubmit } = this.props
+      // With redux-form we can pass a function to intercept submitting. handleSubmit is redux-forms's function
+      // that will update the redux state. Submit is our function, supplied by a parent container to handle form
+      // submission.
     return(
       <div className="id-login">
-        <form>
+        <form onSubmit={handleSubmit(containerSubmit)}>
           <h1>Login</h1>
           <div className="form-group">
             <label>Username</label>
-            <input type="email" className="form-control" />
+            <input type="text" className="form-control" placeholder="reidw" {...username} />
           </div>
           <div className="form-group">
             <label>Password</label>
-            <input name="password" type="password" className="form-control" />
+            <input type="password" className="form-control" {...password} />
           </div>
-          <button type="button" className="btn btn-warning btn-lg" onClick={this.handleSubmit}>Login</button>
+          <button type="button" className="btn btn-warning btn-lg" onClick={handleSubmit(containerSubmit)}>Login</button>
         </form>
       </div>
     )
@@ -77,12 +65,10 @@ class LoginFormComponent extends Component {
 //   currentUser: PropTypes.object.isRequired
 // }
 
-
-// LoginFormComponent = reduxForm({
-//   form: 'LogInForm',
-//   fields: ['email', 'password'],
-//   validate
-// })(LoginFormComponent)
+LoginFormComponent = reduxForm({
+  form: 'BootstrapLoginFormComponent',
+  fields: ['username', 'password']
+})(LoginFormComponent)
 
 
 export default LoginFormComponent
