@@ -22,17 +22,21 @@ function mapDispatchToProps(dispatch) {
   }
 }
 
-class LogInContainer extends Component {
+class LoginContainer extends Component {
   render() {
+    let submit = function(email, password) {
+      console.log(email + ' ' + password)
+    }
+
     return(
       <div className="container">
         <div className="col-sm-6 col-sm-offset-3">
-          <LoginFormComponent { ...this.props } />
+          <LoginFormComponent submit={submit} />
         </div>
       </div>
     )
   }
 }
 
-// export default connect(mapStateToProps, mapDispatchToProps)(LogInContainer)
-export default LogInContainer
+// export default connect(mapStateToProps, mapDispatchToProps)(LoginContainer)
+export default LoginContainer

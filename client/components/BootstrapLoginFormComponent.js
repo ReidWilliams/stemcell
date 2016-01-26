@@ -1,5 +1,14 @@
 'use strict'
 
+/*
+  Really simple Login form. Uses email and password inputs that are uncontrolled, meaning
+  we don't setState (or propogate state) when these fields change. Instead we only propogate 
+  state when submit button is pressed.
+
+  Drawback is that we can't change email or password values in response to server side events or any
+  events outside of user interaction.
+*/
+
 // Globals
 import _ from 'lodash'
 import validator from 'validator'
@@ -28,11 +37,15 @@ import { Link } from 'react-router'
 
 
 class LoginFormComponent extends Component {
+  constructor() {
+    super()
+    this.handleSubmit = this.handleSubmit.bind(this)
+  }
+
   handleSubmit(event) {
-    debugger;
-    console.log('submitted with event')
-    console.log(event)
-    console.log(this.state)
+    let email = event.target.form[0].value
+    let password = event.target.form[1].value
+    this.props.submit(email, password)
   }
 
   render() {
@@ -43,7 +56,7 @@ class LoginFormComponent extends Component {
           <h1>Login</h1>
           <div className="form-group">
             <label>Username</label>
-            <input name="email" type="email" className="form-control" />
+            <input type="email" className="form-control" />
           </div>
           <div className="form-group">
             <label>Password</label>
