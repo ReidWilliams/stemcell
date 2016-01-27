@@ -9,7 +9,7 @@ import { createStore, combineReducers } from 'redux'
 import { Router, Route, IndexRoute } from 'react-router'
 
 import AppContainer from './../containers/AppContainer'
-import dashboardContainer from './../containers/dashboardContainer'
+import CertificationsContainer from './../containers/CertificationsContainer'
 import LandingContainer from './../containers/LandingContainer'
 import LoginContainer from './../containers/LoginContainer'
 import signUpContainer from './../containers/signUpContainer'
@@ -21,25 +21,17 @@ module.exports = (appStore) => {
   // For info on the callback see: 
   // https://github.com/rackt/react-router/blob/master/docs/API.md#onenternextstate-replace-callback
   const ensureAuthenticated = (nextState, replaceState, callback) => {
-    const existingToken = appStore.getState().currentUser.token
-  
-    console.log(existingToken)
-
-    const checkAuth = () => {
-      const { currentUser } = appStore.getState()
-      if (!currentUser.token) {
-        // TODO: REMOVE when happy with network error handling
-        console.warn('PROTECTED ROUTE! REDIRECTING TO /LOGIN')
-        replaceState(null, '/login')
-      }
-      callback()
-    }
-    
-    if (existingToken) {
-      appStore.dispatch(currentUserFetch()).then(checkAuth)
-    } else {
-      checkAuth()
-    }
+   
+    // const { currentUser } = appStore.getState()
+    // if (!currentUser.isLoggedIn) {
+    //   // try to grab user data before directing to /login
+    //   appStore.dispatch(currentUserFetch()).then(() => {
+    //     callback()
+    //   }).catch(() => {
+    //     replaceState(null, '/login')
+    //   })
+    // }
+    callback()
   }
 
   return (
@@ -48,7 +40,7 @@ module.exports = (appStore) => {
       <Route path="signup" component={ signUpContainer } />
       <Route path="login" component={ LoginContainer } />
       <Route onEnter={ ensureAuthenticated } >
-        <Route path="dashboard" component={ dashboardContainer } />
+        <Route path="me" component={ CertificationsContainer } />
       </Route>
     </Route>
   )

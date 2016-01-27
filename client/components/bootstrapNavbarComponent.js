@@ -37,7 +37,7 @@ class NavbarItem extends Component {
 	}
 }
 
-export default class NavbarComponent extends Component {
+export default class BootstrapNavbarComponent extends Component {
   render() {
   	let activeRoute = this.props.activeRoute
     return(

@@ -7,6 +7,7 @@ import { connect } from 'react-redux'
 
 import LoginFormComponent from './../components/BootstrapLoginFormComponent'
 import * as actions from './../actions/loginActions'
+import { history } from './../config/history'
 
 
 function mapStateToProps(state) {
@@ -20,7 +21,18 @@ function mapDispatchToProps(dispatch) {
   return {
     // pass this as a prop to component. It'll get called with an object
     // when the form is submitted
-    containerSubmit: (formObject) => dispatch(actions.login(formObject.username, formObject.password))
+    containerSubmit: (formObject) => {
+
+      // FIXME: just for testing
+      formObject.username = 'tkodev'
+      formObject.password = 'IDEObitsblocks'
+
+      dispatch(actions.login(formObject.username, formObject.password))
+      .then(() => {
+        console.log('user is logged in!')
+        history.replaceState(null, '/me')
+      })
+    }
   }
 }
 

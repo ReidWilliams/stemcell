@@ -21,7 +21,11 @@ export default class appContainer extends Component {
 	    {
 	      text: 'LOGIN',
 	      href: '/login'
-	    }
+	    },
+      {
+        text: 'ME',
+        href: '/me'
+      }
 	  ]
 
 	  let activeRoute = this.props.location.pathname

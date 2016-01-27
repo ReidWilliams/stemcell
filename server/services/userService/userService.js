@@ -7,8 +7,8 @@ import express from 'express'
 // Constants
 
 // naming
-const SVC_NAME = 'auth'
-const LOGIN = '/login'
+const SVC_NAME = 'user'
+const USER = '/'
 
 // Router
 // Expose a router to plug into the main express app
@@ -16,13 +16,13 @@ const LOGIN = '/login'
 let router = express.Router()
 
 // Public API Functions
-// don't check credentials, that's handled by passport, 
-// just return true
-export let login = function(req, res) {  
-  res.json(true)
+// ensuring authentication handled outside this module
+let getUser = function(req, res) {  
+	console.log(req.user.basics)
+  res.json(req.user.basics)
 }
 
-router.post(LOGIN, login)
+router.post(USER, getUser)
 
 // Exports
 

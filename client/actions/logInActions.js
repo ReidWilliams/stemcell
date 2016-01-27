@@ -2,6 +2,7 @@
 
 import assert from 'assert'
 import fetch from 'isomorphic-fetch'
+import q from 'q'
 
 import { ENDPOINTS } from './../constants/endpoints'
 import { 
@@ -24,10 +25,10 @@ export function loginStart(data) {
   }
 }
 
-export function loginSuccess(data) {
+export function loginSuccess() {
   return {
     type: LOG_IN_SUCCESS,
-    payload: data
+    payload: null
   }
 }
 
@@ -41,6 +42,7 @@ export function loginError(err) {
 
 // Action creator. Returns a function of dispatch. This is the pattern
 // when using thunk middleware for dispatching async actions.
+// Doesn't pull user data, just logs in and creates session
 export function login(username, password) {
   const payload = {
     username: username,
@@ -53,9 +55,8 @@ export function login(username, password) {
     dispatch(unsetAppError(ERRORS.LOG_IN))
 
     return fPost(ENDPOINTS.LOG_IN, payload)
-      .then(fJSON)
-      .then((currentUser) => {
-        dispatch(loginSuccess(currentUser))
+      .then(() => {
+        return q(dispatch(loginSuccess()))
       })
       .catch((err) => {
         dispatch(logInError(err))

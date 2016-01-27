@@ -6,7 +6,7 @@ import ReactDOM from 'react-dom'
 import { Link } from 'react-router'
 
 
-export default class dashboardContainer extends Component {
+export default class CertificationsContainer extends Component {
   render() {
     return(
       <div>
