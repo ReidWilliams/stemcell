@@ -8,10 +8,12 @@ import session from 'express-session'
 import { loadService, loadServiceWithMiddleware } from './loadService'
 
 import yes from './yes/yesService'
+import auth from './authService/authService'
 import keybaseStrategy from '../middleware/keybasePassportStrategy'
 
 /*
 	Construct app by importing service modules and calling loadService.
+	Important: body parsing is already set up in app.js
 	*/
 
 export default function (app) {
@@ -22,11 +24,12 @@ export default function (app) {
 	passport.serializeUser(keybaseStrategy.serializeUser)
 	passport.deserializeUser(keybaseStrategy.deserializeUser)
 
-	// Passport as app middleware
+	// Set up Passport as app middleware
+	// FIXME: make tedkotest a config variable
 	app.use(session({ secret: 'tedkotest', resave: false, saveUninitialized: true })); // session secret
 	app.use(passport.initialize())
 	app.use(passport.session())
 	
 	let passportMiddleware = passport.authenticate('local')
-	loadServiceWithMiddleware(app, passportMiddleware, yes)
+	loadServiceWithMiddleware(app, passportMiddleware, auth)
 }

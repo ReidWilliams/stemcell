@@ -17,21 +17,21 @@ import { fJSON, fPost } from './../utils/api'
 
 // LOG_IN Action Creators
 
-export function logInStart(data) {
+export function loginStart(data) {
   return {
     type: LOG_IN_START,
-    payload: data.email
+    payload: data.username
   }
 }
 
-export function logInSuccess(data) {
+export function loginSuccess(data) {
   return {
     type: LOG_IN_SUCCESS,
     payload: data
   }
 }
 
-export function logInError(err) {
+export function loginError(err) {
   return {
     type: LOG_IN_ERROR,
     payload: err,
@@ -41,7 +41,7 @@ export function logInError(err) {
 
 // Action creator. Returns a function of dispatch. This is the pattern
 // when using thunk middleware for dispatching async actions.
-export function logIn(username, password) {
+export function login(username, password) {
   const payload = {
     username: username,
     password: password
@@ -49,13 +49,13 @@ export function logIn(username, password) {
 
   // return a function that takes a dispatch object
   return (dispatch) => {
-    dispatch(logInStart(payload))
+    dispatch(loginStart(payload))
     dispatch(unsetAppError(ERRORS.LOG_IN))
 
     return fPost(ENDPOINTS.LOG_IN, payload)
       .then(fJSON)
       .then((currentUser) => {
-        dispatch(logInSuccess(currentUser))
+        dispatch(loginSuccess(currentUser))
       })
       .catch((err) => {
         dispatch(logInError(err))

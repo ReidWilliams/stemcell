@@ -60,14 +60,11 @@ export function currentUser(state=placeholderUser, action) {
       return newState
 
     case LOG_IN_SUCCESS:
-      let { token, user } = action.payload
-      // storage the token in localStorage
-      storage.set(AUTH_TOKEN, token)
-      // Then update the app user
-      newState.token = token
+      let user = action.payload
       newState.isLoggedIn = true
       newState.isFetching = false
       newState.data = user
+      console.log(newState)
       return newState
 
     case LOG_IN_ERROR:

@@ -6,7 +6,7 @@ import ReactDOM from 'react-dom'
 import { connect } from 'react-redux'
 
 import LoginFormComponent from './../components/BootstrapLoginFormComponent'
-import * as actions from './../actions/logInActions'
+import * as actions from './../actions/loginActions'
 
 
 function mapStateToProps(state) {
@@ -20,7 +20,7 @@ function mapDispatchToProps(dispatch) {
   return {
     // pass this as a prop to component. It'll get called with an object
     // when the form is submitted
-    containerSubmit: (formObject) => dispatch(actions.logIn(formObject.username, formObject.password))
+    containerSubmit: (formObject) => dispatch(actions.login(formObject.username, formObject.password))
   }
 }
 
