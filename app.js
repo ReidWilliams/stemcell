@@ -52,6 +52,7 @@ app.use(function(req, res, next) {
 
 // Middleware
 
+// FIXME: add tests to make sure app has body parsers loaded
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }))
 // parse application/json
