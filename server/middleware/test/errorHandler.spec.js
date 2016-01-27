@@ -10,7 +10,6 @@ import bodyParser from 'body-parser';
 
 
 // Locals
-import testUtils from './../../utils/testUtils';
 // Note: Import the one service we want to explicitly test 
 // We don't need to load the whole app
 import middlewareError from './../errorHandler';

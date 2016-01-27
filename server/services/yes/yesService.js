@@ -47,7 +47,7 @@ function yes(req, res) {
   res.json('yes')
 }
 
-router.get(YES_ROUTE, yes)
+router.all(YES_ROUTE, yes)
 
 // Exports
 
