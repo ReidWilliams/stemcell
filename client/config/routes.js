@@ -20,7 +20,7 @@ module.exports = (appStore) => {
 
   // For info on the callback see: 
   // https://github.com/rackt/react-router/blob/master/docs/API.md#onenternextstate-replace-callback
-  const ensureAuthenticated = (nextState, replaceState, callback) => {
+  // const ensureAuthenticated = (nextState, replaceState, callback) => {
    
     // const { currentUser } = appStore.getState()
     // if (!currentUser.isLoggedIn) {
@@ -31,17 +31,15 @@ module.exports = (appStore) => {
     //     replaceState(null, '/login')
     //   })
     // }
-    callback()
-  }
+  //   callback()
+  // }
 
   return (
     <Route path="/" component={ AppContainer }>
       <IndexRoute component={ LandingContainer } />
       <Route path="signup" component={ signUpContainer } />
       <Route path="login" component={ LoginContainer } />
-      <Route onEnter={ ensureAuthenticated } >
-        <Route path="me" component={ CertificationsContainer } />
-      </Route>
+      <Route path="me" component={ CertificationsContainer } />
     </Route>
   )
 }
