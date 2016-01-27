@@ -2,6 +2,7 @@
 
 // System Dependencies
 import express from 'express'
+import bodyParser from 'body-parser'
 import jwt from 'jsonwebtoken'
 import mongoose from 'mongoose'
 import path from 'path'
@@ -14,7 +15,7 @@ import url from 'url'
 // Note: always bring the config in first
 import config from './server/config/config'
 import dbUtils from './server/utils/dbUtils'
-import serviceRegistry from './server/services/serviceRegistry'
+import loadServices from './server/services/services'
 
 import webpackConfig from './webpack.config'
 import webpackDevMiddleware from 'webpack-dev-middleware'
@@ -49,9 +50,13 @@ app.use(function(req, res, next) {
   next()
 })
 
-
-
 // Middleware
+
+// FIXME: add tests to make sure app has body parsers loaded
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: true }))
+// parse application/json
+app.use(bodyParser.json())
 
 // Build webpack comiler based on webpack config
 let webpackCompiler = webpack(webpackConfig)
@@ -61,7 +66,7 @@ app.use(webpackHotMiddleware(webpackCompiler, webpackMiddlewareConfig.HOT))
 
 
 // Load API Routes
-serviceRegistry.loadServices(app)
+loadServices(app)
 
 
 // Handle static files
@@ -74,7 +79,7 @@ let sendClient = (res) => {
   return res.sendFile(path.join(PUBLIC_PATH + '/index.html'))
 }
 
-// FIXME: consolidate these and in client routing. We're specifying routes in too many places.
+// // FIXME: consolidate these and in client routing. We're specifying routes in too many places.
 app.get('/', (req, res) => { sendClient(res) })
 app.get('/signup', (req, res) => { sendClient(res) })
 app.get('/login', (req, res) => { sendClient(res) })

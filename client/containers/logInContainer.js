@@ -5,8 +5,8 @@ import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
 import { connect } from 'react-redux'
 
-import LogInFormComponent from './../components/LogInFormComponent'
-import * as actions from './../actions/logInActions'
+import LoginFormComponent from './../components/BootstrapLoginFormComponent'
+import * as actions from './../actions/loginActions'
 
 
 function mapStateToProps(state) {
@@ -18,18 +18,23 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    submit: (pendingUser) => dispatch(actions.logIn(pendingUser))
+    // pass this as a prop to component. It'll get called with an object
+    // when the form is submitted
+    containerSubmit: (formObject) => dispatch(actions.login(formObject.username, formObject.password))
   }
 }
 
-class LogInContainer extends Component {
+class LoginContainer extends Component {
   render() {
     return(
-      <div>
-        <LogInFormComponent { ...this.props } />
+      <div className="container">
+        <div className="col-sm-6 col-sm-offset-3">
+          <LoginFormComponent { ...this.props } />
+        </div>
       </div>
     )
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(LogInContainer)
+export default connect(mapStateToProps, mapDispatchToProps)(LoginContainer)
+// export default LoginContainer

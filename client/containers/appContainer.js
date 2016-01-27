@@ -5,7 +5,7 @@ import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
 import { Link } from 'react-router'
 
-import NavbarComponent from './../components/bootstrapNavbarComponent'
+import NavbarComponent from './../components/BootstrapNavbarComponent'
 
 export default class appContainer extends Component {
   render() {
