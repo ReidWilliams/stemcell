@@ -1,0 +1,49 @@
+/* Certification Card */
+
+@mixin font-family {
+  font-family: 'Circular';
+}
+
+@mixin bg-teal {
+  background-color: #4EE3C2;
+}
+
+.certification-card {
+  width: 230px;
+  height: 230px;
+  margin: 0 auto;
+  margin-bottom: 50px;
+
+  background: #FFFFFF;
+  box-shadow: 0px 2px 6px 0px rgba(0,0,0,0.25);
+  border-radius: 8px;
+
+  .icon {
+    height: 143px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    @include bg-teal;
+  }
+
+  .text {
+    margin-left: 10px;
+    margin-top: 5px;
+    @include font-family
+    color: #939597;
+    
+    .header {
+      font-weight: bold;
+      font-size: 16px;
+    }
+
+    .detail {
+      font-size: 12px;
+    }
+    
+    .sender {
+      font-size: 12px;
+      font-weight: bold;
+      margin-top: 18px;
+    }
+  }
+}

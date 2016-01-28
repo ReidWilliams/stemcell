@@ -8,6 +8,7 @@ import { Link } from 'react-router'
 
 // Locals
 import * as actions from './../actions/userActions'
+import CertificationCardComponent from '../components/CertificationCardComponent'
 
 function mapStateToProps(state) {
   return {
@@ -27,7 +28,7 @@ function mapDispatchToProps(dispatch) {
 
 class CertificationsContainer extends Component {
 	componentWillMount() {
-		this.props.fetchContainerData()
+		// this.props.fetchContainerData()
 	}
 
   render() {
@@ -36,6 +37,32 @@ class CertificationsContainer extends Component {
         <h1>Your Dashboard</h1>
         <h3>This is a protected route</h3>
         <hr/>
+        <br/>
+        <br/>
+
+
+        <div className="container">
+          <div className="row">
+            <div className="col-md-3">
+            <CertificationCardComponent />
+            </div>
+            <div className="col-md-3">
+            <CertificationCardComponent />
+            </div>
+            <div className="col-md-3">
+            <CertificationCardComponent />
+            </div>
+            <div className="col-md-3">
+            <CertificationCardComponent />
+            </div>
+            <div className="col-md-3">
+            <CertificationCardComponent />
+            </div>
+            <div className="col-md-3">
+            <CertificationCardComponent />
+            </div>
+          </div>
+        </div>
       </div>
     )
   }
