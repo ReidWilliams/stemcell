@@ -42,14 +42,14 @@ export let loadServiceEnsureAuthenticated = function(app, service) {
 
   let route = API_BASE_V1 + '/' + service.name
   app.use(route, [ensureAuthenticated, service.router])
-  console.log('LOADED: ' + service.name.toUpperCase() + ' SERVICE AT ' + route)
+  console.log('LOADED: ' + service.name.toUpperCase() + ' SERVICE AT ' + route + ' protected by auth')
 }
 
 let ensureAuthenticated = function(req, res, next) {
-  if (req.isAuthenticated) {
+  if (req.isAuthenticated()) {
     return next()
   } else {
-    res.send(401)
+    res.sendStatus(401)
   }
 }
 

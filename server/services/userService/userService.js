@@ -8,7 +8,7 @@ import express from 'express'
 
 // naming
 const SVC_NAME = 'user'
-const USER = '/'
+const USER = ''
 
 // Router
 // Expose a router to plug into the main express app
@@ -22,7 +22,7 @@ let getUser = function(req, res) {
   res.json(req.user.basics)
 }
 
-router.post(USER, getUser)
+router.get(USER, getUser)
 
 // Exports
 

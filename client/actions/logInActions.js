@@ -55,7 +55,10 @@ export function login(username, password) {
     dispatch(unsetAppError(ERRORS.LOG_IN))
 
     return fPost(ENDPOINTS.LOG_IN, payload)
-      .then(() => {
+      .then((res) => {
+        if (res.status === 401) {
+          return q.reject(401)
+        }
         return q(dispatch(loginSuccess()))
       })
       .catch((err) => {

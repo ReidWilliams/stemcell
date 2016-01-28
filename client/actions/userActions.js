@@ -13,8 +13,9 @@ import {
 import * as ERRORS from './../constants/errorTypes'
 
 import { setAppError, unsetAppError } from './appErrorActions'
-import { fJSON, fGet } from './../utils/api'
+import { fJSON, fGet, redirectOnError } from './../utils/api'
 
+let redirectOn401 = redirectOnError(401, '/login')
 
 // CURRENT_USER_FETCH Action Creators
 
@@ -41,12 +42,13 @@ export function currentUserFetchError(err) {
 
 export function currentUserFetch() {
   return (dispatch) => {
-    const fetchUrl = ENDPOINTS.USER_FETCH + '/me'
+    const fetchUrl = ENDPOINTS.USER_FETCH
 
     dispatch(currentUserFetchStart())
     dispatch(unsetAppError(ERRORS.CURRENT_USER_FETCH))
 
     return fGet(fetchUrl)
+      .then(redirectOn401)
       .then(fJSON)
       .then((user) => {
         dispatch(currentUserFetchSuccess(user))

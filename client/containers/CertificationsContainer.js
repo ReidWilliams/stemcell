@@ -3,6 +3,7 @@
 // Globals
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
+import { connect } from 'react-redux'
 import { Link } from 'react-router'
 
 // Locals
@@ -20,14 +21,12 @@ function mapDispatchToProps(dispatch) {
   	fetchContainerData: () => {
   		dispatch(actions.currentUserFetch())
   	}
-   
-  
   }
 }
 
 
-export default class CertificationsContainer extends Component {
-	componentDidMount() {
+class CertificationsContainer extends Component {
+	componentWillMount() {
 		this.props.fetchContainerData()
 	}
 
@@ -41,6 +40,8 @@ export default class CertificationsContainer extends Component {
     )
   }
 }
+
+export default connect(mapStateToProps, mapDispatchToProps)(CertificationsContainer)
 
 
 // <p>You can really only <Link to="/logout">log out</Link>...</p>

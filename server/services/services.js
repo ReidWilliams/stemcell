@@ -20,14 +20,20 @@ import keybaseStrategy from '../middleware/keybasePassportStrategy'
 export default function (app) {
 
 	// Set up passport to use our keybase local strategy
-
-	passport.use(new LocalStrategy(keybaseStrategy.strategyCallback))
 	passport.serializeUser(keybaseStrategy.serializeUser)
 	passport.deserializeUser(keybaseStrategy.deserializeUser)
+	passport.use(new LocalStrategy(keybaseStrategy.strategyCallback))
+	
 
 	// Set up Passport as app middleware
 	// FIXME: make tedkotest a config variable
-	app.use(session({ secret: 'tedkotest', resave: false, saveUninitialized: true })); // session secret
+	app.use(session({ 
+		secret: 'tedkotest', 
+		resave: false, 
+		saveUninitialized: true,
+		cookie: { secure: false }
+	}));
+
 	app.use(passport.initialize())
 	app.use(passport.session())
 	

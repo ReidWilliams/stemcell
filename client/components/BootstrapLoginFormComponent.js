@@ -50,7 +50,7 @@ class LoginFormComponent extends Component {
             <label>Password</label>
             <input type="password" className="form-control" {...password} />
           </div>
-          <button type="button" className="btn btn-warning btn-lg" onClick={handleSubmit(containerSubmit)}>Login</button>
+          <button type="submit" className="btn btn-warning btn-lg" onClick={handleSubmit(containerSubmit)}>Login</button>
         </form>
       </div>
     )

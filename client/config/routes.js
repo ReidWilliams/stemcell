@@ -18,22 +18,6 @@ import { currentUserFetch } from './../actions/userActions'
 module.exports = (appStore) => {
   assert(_.isObject(appStore))
 
-  // For info on the callback see: 
-  // https://github.com/rackt/react-router/blob/master/docs/API.md#onenternextstate-replace-callback
-  // const ensureAuthenticated = (nextState, replaceState, callback) => {
-   
-    // const { currentUser } = appStore.getState()
-    // if (!currentUser.isLoggedIn) {
-    //   // try to grab user data before directing to /login
-    //   appStore.dispatch(currentUserFetch()).then(() => {
-    //     callback()
-    //   }).catch(() => {
-    //     replaceState(null, '/login')
-    //   })
-    // }
-  //   callback()
-  // }
-
   return (
     <Route path="/" component={ AppContainer }>
       <IndexRoute component={ LandingContainer } />
