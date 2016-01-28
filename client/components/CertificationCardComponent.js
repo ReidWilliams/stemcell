@@ -10,9 +10,9 @@ export default class CertificationCardComponent extends Component {
     	<div className="certification-card">
     		<div className="icon"></div>
   			<div className="text">
-  				<div className="header">Amazing</div>
-  				<div className="detail">What an amazing design</div>
-  				<div className="sender">from Ted Ko</div>
+  				<div className="title"><h1>Awesome</h1></div>
+  				<div className="detail"><p>What an amazing design, yep, lorem ipsum dolores getting longer</p></div>
+  				<div className="sender"><p>from Ted Ko</p></div>
   			</div>
     	</div>
     )

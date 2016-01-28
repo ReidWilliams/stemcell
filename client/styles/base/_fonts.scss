@@ -19,3 +19,12 @@
     src: url('/public/assets/fonts/Sentinel/Sentinel-BookItalic.otf');
     font-weight: italic;
 }
+
+/* Use these in individual components */
+@mixin font-circular {
+    font-family: 'Circular';
+}
+
+@mixin font-sentinel {
+    font-family: Sentinel;
+}

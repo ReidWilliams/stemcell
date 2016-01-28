@@ -1,16 +1,8 @@
 /* Certification Card */
 
-@mixin font-family {
-  font-family: 'Circular';
-}
-
-@mixin bg-teal {
-  background-color: #4EE3C2;
-}
-
 .certification-card {
   width: 230px;
-  height: 230px;
+  height: 300px;
   margin: 0 auto;
   margin-bottom: 50px;
 
@@ -19,28 +11,37 @@
   border-radius: 8px;
 
   .icon {
-    height: 143px;
+    height: 170px;
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
-    @include bg-teal;
+    background-color: #4EE3C2;
   }
 
   .text {
+    position: relative;
+    height: 300px - 170px; /* height of card minus icon */
     margin-left: 10px;
-    margin-top: 5px;
-    @include font-family
+    margin-right: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    @include font-circular
     color: #939597;
     
-    .header {
+    h1 {
       font-weight: bold;
       font-size: 16px;
+      margin-top: 0px;
+      margin-bottom: 5px;
     }
 
-    .detail {
+    p {
       font-size: 12px;
+      margin-bottom: 0px;
     }
     
     .sender {
+      position: absolute;
+      bottom: 15px;
       font-size: 12px;
       font-weight: bold;
       margin-top: 18px;

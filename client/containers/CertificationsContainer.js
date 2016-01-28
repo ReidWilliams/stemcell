@@ -40,24 +40,8 @@ class CertificationsContainer extends Component {
         <br/>
         <br/>
 
-
         <div className="container">
           <div className="row">
-            <div className="col-md-3">
-            <CertificationCardComponent />
-            </div>
-            <div className="col-md-3">
-            <CertificationCardComponent />
-            </div>
-            <div className="col-md-3">
-            <CertificationCardComponent />
-            </div>
-            <div className="col-md-3">
-            <CertificationCardComponent />
-            </div>
-            <div className="col-md-3">
-            <CertificationCardComponent />
-            </div>
             <div className="col-md-3">
             <CertificationCardComponent />
             </div>
