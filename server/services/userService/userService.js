@@ -4,7 +4,7 @@
 
 import express from 'express'
 
-import { getCertifications } from './userServiceDB'
+import { getCertifications, getUserDetails } from './userServiceDB'
 
 // Constants
 
@@ -23,7 +23,12 @@ let getUser = function(req, res) {
 	let username = req.user.basics.username
 	let payload = {}
 
-	getCertifications(username).then((certs) => {
+	getUserDetails(username).then((details) => {
+		payload.firstName = details.firstName
+		payload.lastName = details.lastName
+	}).then(() => {
+		return getCertifications(username)
+	}).then((certs) => {
 		payload.username = username
 		payload.certifications = certs
 		res.json(payload)

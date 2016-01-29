@@ -34,13 +34,7 @@ class CertificationsPageContainer extends Component {
   render() {
     return(
       <div>
-        <h1>Your Dashboard</h1>
-        <h3>This is a protected route</h3>
-        <hr/>
-        <br/>
-        <br/>
-
-        <UserProfileCardComponent />
+        <UserProfileCardComponent {...this.props}/>
         <CertificationCardsContainer {...this.props} />
       </div>
     )

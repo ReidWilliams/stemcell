@@ -5,12 +5,14 @@ import React, { Component } from 'react'
 
 export default class UserProfileCardComponent extends Component {
   render() {
+    // debugger
+    let firstName = this.props.currentUser.firstName
   	
     return(
     	<div className="profile-card">
-    		<div className="picture"></div>
   			<div className="text">
-  				<div className="name"><h1>Reid Williams</h1></div>
+  				<h1>Hi {firstName}</h1>
+          <p>You&#39;re awesome and these certifications prove it</p>
   			</div>
     	</div>
     )
