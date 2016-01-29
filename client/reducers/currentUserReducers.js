@@ -25,7 +25,7 @@ const placeholderUser = {
   isFetching: false,
   data: {
     username: null,
-    name: { first: '', last: '' }
+    certifications: []
   }
 }
 
@@ -59,7 +59,7 @@ export function currentUser(state=placeholderUser, action) {
     case CURRENT_USER_FETCH_SUCCESS:
       console.log('user fetch success', action)
       newState.isFetching = false
-      newState.data.username = action.payload
+      newState.data = action.payload
       return newState
         
     case CURRENT_USER_FETCH_ERROR:

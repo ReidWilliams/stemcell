@@ -4,6 +4,8 @@
 
 import express from 'express'
 
+import { getCertifications } from './userServiceDB'
+
 // Constants
 
 // naming
@@ -18,8 +20,19 @@ let router = express.Router()
 // Public API Functions
 // ensuring authentication handled outside this module
 let getUser = function(req, res) {  
-	console.log(req.user.basics)
-  res.json(req.user.basics)
+	let username = req.user.basics.username
+	let payload = {}
+
+	getCertifications(username).then((certs) => {
+		payload.username = username
+		payload.certifications = certs
+		res.json(payload)
+	}).catch((err) => {
+		console.log('error fetching user certificates:')
+		console.log(err)
+		res.status(500);
+		res.send('error fetching user certificates');
+	})
 }
 
 router.get(USER, getUser)

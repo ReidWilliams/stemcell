@@ -50,8 +50,8 @@ export function currentUserFetch() {
     return fGet(fetchUrl)
       .then(redirectOn401)
       .then(fJSON)
-      .then((user) => {
-        dispatch(currentUserFetchSuccess(user))
+      .then((payload) => {
+        dispatch(currentUserFetchSuccess(payload))
       })
       .catch((err) => {
         dispatch(currentUserFetchError(err))

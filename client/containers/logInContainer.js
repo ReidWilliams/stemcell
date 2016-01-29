@@ -11,10 +11,7 @@ import { history } from './../config/history'
 
 
 function mapStateToProps(state) {
-  return {
-    currentUser: state.currentUser,
-    appErrors: state.appErrors
-  }
+  return {}
 }
 
 function mapDispatchToProps(dispatch) {
@@ -24,8 +21,8 @@ function mapDispatchToProps(dispatch) {
     containerSubmit: (formObject) => {
 
       // FIXME: just for testing
-      // formObject.username = 'tkodev'
-      // formObject.password = 'IDEObitsblocks'
+      formObject.username = 'tkodev'
+      formObject.password = 'IDEObitsblocks'
 
       dispatch(actions.login(formObject.username, formObject.password))
       .then(() => {

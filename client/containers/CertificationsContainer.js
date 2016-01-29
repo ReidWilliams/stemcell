@@ -12,29 +12,8 @@ import CertificationCardComponent from '../components/CertificationCardComponent
 
 function mapStateToProps(state) {
   return {
-    currentUser: state.currentUser,
+    currentUser: state.currentUser.data,
     appErrors: state.appErrors,
-    certifications: [
-      {
-        title: "What an awesome design",
-        description: "yeay aweseom, lorem ipsum dlores media",
-        sender: "Reid Williams"
-      },
-      {
-        title: "What an awesome design",
-        description: "yeay aweseom, lorem ipsum dlores media",
-        sender: "Reid Williams"
-      },
-      {
-        title: "What an awesome design",
-        description: "yeay aweseom, lorem ipsum dlores media",
-        sender: "Reid Williams"
-      },
-      {
-        title: "What an awesome design",
-        description: "yeay aweseom, lorem ipsum dlores media",
-        sender: "Reid Williams"
-      }]
   }
 }
 
@@ -50,7 +29,7 @@ function mapDispatchToProps(dispatch) {
 
 class CertificationsContainer extends Component {
 	componentWillMount() {
-		// this.props.fetchContainerData()
+		this.props.fetchContainerData()
 	}
 
   render() {
@@ -65,7 +44,7 @@ class CertificationsContainer extends Component {
         <div className="container">
           <div className="row">
             
-            {this.props.certifications.map((cert) => {
+            {this.props.currentUser.certifications.map((cert) => {
               return (
                 <div className="col-md-3">
                   <CertificationCardComponent title={cert.title} description={cert.description} sender={"from " + cert.sender} />
