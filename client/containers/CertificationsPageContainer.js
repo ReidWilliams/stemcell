@@ -13,6 +13,7 @@ function mapStateToProps(state) {
   return {
     currentUser: state.currentUser.data,
     appErrors: state.appErrors,
+    subTitle: 'You\'re awesome and these certifications prove it'
   }
 }
 
