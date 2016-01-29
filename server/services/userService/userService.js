@@ -4,13 +4,14 @@
 
 import express from 'express'
 
-import { getCertifications, getUserDetails } from './userServiceDB'
+import { getCertifications, getUserDetails, createCertification } from './userServiceDB'
 
 // Constants
 
 // naming
 const SVC_NAME = 'user'
 const USER = ''
+const CERTIFY = '/certify'
 
 // Router
 // Expose a router to plug into the main express app
@@ -40,7 +41,19 @@ let getUser = function(req, res) {
 	})
 }
 
+let certifySomeone = function(req, res) {
+	console.log('in certify someone')
+	createCertification(req.user.basics.username, req.body).then(function() {
+		res.json(true)
+	}).catch(function(err) {
+		console.log(err)
+		res.status(500)
+		res.send(err)
+	})
+}
+
 router.get(USER, getUser)
+router.post(CERTIFY, certifySomeone)
 
 // Exports
 

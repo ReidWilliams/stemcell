@@ -14,6 +14,7 @@ import { history } from './config/history'
 import getRoutes from './config/routes'
 import currentUserReducer from './reducers/currentUserReducers'
 import appErrorReducer from './reducers/appErrorReducers'
+import certifyPersonReducer from './reducers/certifyPersonReducer'
 
 // import css
 import './styles/main.scss'
@@ -22,6 +23,7 @@ const appReducer = combineReducers({
   form: formReducer,
   appErrors: appErrorReducer,
   currentUser: currentUserReducer,
+  certifyPerson: certifyPersonReducer,
   routing: routeReducer
 })
 

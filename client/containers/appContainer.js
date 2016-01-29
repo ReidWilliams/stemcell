@@ -25,6 +25,10 @@ export default class appContainer extends Component {
       {
         text: 'ME',
         href: '/me'
+      },
+      {
+        text: 'CERTIFY',
+        href: '/certify'
       }
 	  ]
 
