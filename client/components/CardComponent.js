@@ -3,7 +3,7 @@
 // Globals
 import React, { Component } from 'react'
 
-export default class CertificationCardComponent extends Component {
+export default class CardComponent extends Component {
   render() {
   	
     return(

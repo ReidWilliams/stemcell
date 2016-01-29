@@ -9,7 +9,7 @@ import { createStore, combineReducers } from 'redux'
 import { Router, Route, IndexRoute } from 'react-router'
 
 import AppContainer from './../containers/AppContainer'
-import CertificationsContainer from './../containers/CertificationsContainer'
+import CertificationsPageContainer from './../containers/CertificationsPageContainer'
 import LandingContainer from './../containers/LandingContainer'
 import LoginContainer from './../containers/LoginContainer'
 import signUpContainer from './../containers/signUpContainer'
@@ -23,7 +23,7 @@ module.exports = (appStore) => {
       <IndexRoute component={ LandingContainer } />
       <Route path="signup" component={ signUpContainer } />
       <Route path="login" component={ LoginContainer } />
-      <Route path="me" component={ CertificationsContainer } />
+      <Route path="me" component={ CertificationsPageContainer } />
     </Route>
   )
 }
