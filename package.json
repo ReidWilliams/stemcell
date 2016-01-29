@@ -65,7 +65,8 @@
     "test": "npm run server_test",
     "client_dev": "NODE_ENV=development babel-node server/server.js",
     "server_dev": "NODE_ENV=development nodemon --exec babel-node server/server.js",
-    "start": "npm run server_dev"
+    "start": "npm run server_dev",
+    "start": "./node_modules/.bin/babel-node app.js"
   },
   "author": {
     "name": "Gavin McDermott",
