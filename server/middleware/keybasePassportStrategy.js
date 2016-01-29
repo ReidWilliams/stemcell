@@ -14,15 +14,17 @@ let keybase = new Keybase()
 
 // pass this to a call to passport local strategy constructor
 let strategyCallback = function(username, password, done) {
-    console.log('checking ' + username)
     keybase.login(username, password, function(err, result) {
+      if (!result.status) {
+        console.log('keybase error')
+        console.log(result)
+        return done(null, false)
+      }
       if (result.status.code !== 0) {
-        console.log('failure keybase')
         return done(null, false)
       }
 
       let user = result.me;
-      console.log('success keybase')
       return done(null, user)
     });
 }

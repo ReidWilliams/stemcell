@@ -2,9 +2,11 @@
 
 import assert from 'assert'
 import _ from 'lodash'
+import q from 'q'
+
 import storage from './../vendor/store'
 import { AUTH_TOKEN } from './../constants/storageKeys'
-
+import { history } from '../config/history'
 
 export function fJSON(response) {
   assert(_.isObject(response))
@@ -35,7 +37,8 @@ export function fPost(url, body) {
       'Content-Type': 'application/json',
       'Authorization': 'Bearer ' + storage.get(AUTH_TOKEN)
     },
-    body: JSON.stringify(body)
+    body: JSON.stringify(body),
+    credentials: 'same-origin'
   })
 }
 
@@ -47,6 +50,25 @@ export function fGet(url) {
       'Accept': 'application/json',
       'Content-Type': 'application/json',
       'Authorization': 'Bearer ' + storage.get(AUTH_TOKEN)
-    }
+    },
+    credentials: 'same-origin'
   })
+}
+
+/*
+  Returns a function that consumes an http response and redirects
+  if the response matches a given HTTP error code. For example, 
+  you might use this to redirect to /login given HTTP error 401.
+  401 means unauthorized user.
+  */
+export function redirectOnError(errorCode, redirectPath) {
+  let redirect = function(res) {
+    if (res.status === errorCode) {
+      history.replaceState(null, '/login')
+      return q.reject(errorCode)
+    }
+    
+    return q(res) 
+  }
+  return redirect
 }

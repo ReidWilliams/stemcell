@@ -9,7 +9,7 @@ import { createStore, combineReducers } from 'redux'
 import { Router, Route, IndexRoute } from 'react-router'
 
 import AppContainer from './../containers/AppContainer'
-import dashboardContainer from './../containers/dashboardContainer'
+import CertificationsPageContainer from './../containers/CertificationsPageContainer'
 import LandingContainer from './../containers/LandingContainer'
 import LoginContainer from './../containers/LoginContainer'
 import signUpContainer from './../containers/signUpContainer'
@@ -18,38 +18,12 @@ import { currentUserFetch } from './../actions/userActions'
 module.exports = (appStore) => {
   assert(_.isObject(appStore))
 
-  // For info on the callback see: 
-  // https://github.com/rackt/react-router/blob/master/docs/API.md#onenternextstate-replace-callback
-  const ensureAuthenticated = (nextState, replaceState, callback) => {
-    const existingToken = appStore.getState().currentUser.token
-  
-    console.log(existingToken)
-
-    const checkAuth = () => {
-      const { currentUser } = appStore.getState()
-      if (!currentUser.token) {
-        // TODO: REMOVE when happy with network error handling
-        console.warn('PROTECTED ROUTE! REDIRECTING TO /LOGIN')
-        replaceState(null, '/login')
-      }
-      callback()
-    }
-    
-    if (existingToken) {
-      appStore.dispatch(currentUserFetch()).then(checkAuth)
-    } else {
-      checkAuth()
-    }
-  }
-
   return (
     <Route path="/" component={ AppContainer }>
       <IndexRoute component={ LandingContainer } />
       <Route path="signup" component={ signUpContainer } />
       <Route path="login" component={ LoginContainer } />
-      <Route onEnter={ ensureAuthenticated } >
-        <Route path="dashboard" component={ dashboardContainer } />
-      </Route>
+      <Route path="me" component={ CertificationsPageContainer } />
     </Route>
   )
 }

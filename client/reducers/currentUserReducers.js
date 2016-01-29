@@ -21,13 +21,11 @@ import { AUTH_TOKEN } from './../constants/storageKeys'
 
 
 const placeholderUser = {
-  token: storage.get(AUTH_TOKEN),  // Check the storage for a token
   isLoggedIn: false,
   isFetching: false,
   data: {
-    id: null,
-    name: { first: '', last: '' },
-    email: { email: '', verified: false }
+    username: null,
+    certifications: []
   }
 }
 
@@ -35,36 +33,15 @@ export function currentUser(state=placeholderUser, action) {
   let newState = Object.assign({}, state)
   switch (action.type) {
 
-    // SIGN_UP
-
-    case SIGN_UP_START:
-      newState.isFetching = true
-      newState.data.email.email = action.payload
-      return newState
-    
-    case SIGN_UP_SUCCESS:
-      newState.isFetching = false
-      newState.data = action.payload
-      return newState
-        
-    case SIGN_UP_ERROR:
-      newState.isFetching = false
-      return newState
-
-
     // LOG_IN
 
     case LOG_IN_START:
       newState.isFetching = true
-      newState.data.email.email = action.payload
       return newState
 
     case LOG_IN_SUCCESS:
-      let user = action.payload
       newState.isLoggedIn = true
       newState.isFetching = false
-      newState.data = user
-      console.log(newState)
       return newState
 
     case LOG_IN_ERROR:
@@ -87,13 +64,11 @@ export function currentUser(state=placeholderUser, action) {
         
     case CURRENT_USER_FETCH_ERROR:
       console.log('user fetch error', action)
-      storage.remove(AUTH_TOKEN)
-      newState.token = null
       newState.isFetching = false
       return newState
     
     default:
-      return newState
+      return state
   }
 }
 
