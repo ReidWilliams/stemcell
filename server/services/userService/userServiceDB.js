@@ -18,13 +18,15 @@ export let getCertifications = function(username) {
 	let Certification = Parse.Object.extend('Certification');
 	let certQuery = new Parse.Query(Certification);
 	certQuery.matchesQuery('receiverUsername', userQuery)
+	certQuery.include('senderUsername')
 
 	certQuery.find().then((objs) => {
 		let certs = _.map(objs, (c) => {
+			let sender = c.get('senderUsername')
 			return {
 				title: c.get('title'),
 				description: c.get('description'),
-				sender: c.get('senderUsername')
+				sender: sender.get('firstName') + ' ' + sender.get('lastName')
 			}
 		})
 		deferred.resolve(certs)
