@@ -6,6 +6,7 @@ import { connect } from 'react-redux'
 
 // Locals
 import CertificationCardsContainer from './CertificationCardsContainer'
+import UserProfileCardComponent from '../components/UserProfileCardComponent'
 import * as actions from './../actions/userActions'
 
 function mapStateToProps(state) {
@@ -39,6 +40,7 @@ class CertificationsPageContainer extends Component {
         <br/>
         <br/>
 
+        <UserProfileCardComponent />
         <CertificationCardsContainer {...this.props} />
       </div>
     )
