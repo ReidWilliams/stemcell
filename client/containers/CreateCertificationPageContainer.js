@@ -43,15 +43,15 @@ class CreateCertificationPageContainer extends Component {
       break
 
       case CERTIFY_STATE_STARTED:
-      comp = (<p>certifying...</p>)
+      comp = (<h1>certifying...</h1>)
       break
 
       case CERTIFY_STATE_SUCCESS:
-      comp = (<p>success</p>)
+      comp = (<h1>success</h1>)
       break
 
       case CERTIFY_STATE_FAILED:
-      comp = (<p>there was a problem...</p>)
+      comp = (<h1>there was a problem...</h1>)
       break
     }
 
