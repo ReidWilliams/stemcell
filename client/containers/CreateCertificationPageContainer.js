@@ -19,7 +19,7 @@ function mapStateToProps(state) {
     currentUser: state.currentUser.data,
     certifyPerson: state.certifyPerson,
     appErrors: state.appErrors,
-    subTitle: 'Got something to say? Certify it'
+    receiverUsernameSearchResults: state.receiverUsernameSearchResults
   }
 }
 
@@ -30,6 +30,9 @@ function mapDispatchToProps(dispatch) {
     },
     containerSubmit: function(formObject) {
       dispatch(certifyActions.certifySomeone(formObject))
+    },
+    usernameChanged: function(event) {
+      dispatch(certifyActions.usernameChanged(event.target.value))
     }
   }
 }
@@ -60,9 +63,6 @@ class CreateCertificationPageContainer extends Component {
       <div>
         <div className="container">
           <div className="col-sm-6 col-sm-offset-3">
-            <div className="search-result-user-card">
-              <CardComponent title="Dan Elitzer" icon="https://s3.amazonaws.com/keybase_processed_uploads/840f766807fc8dd92aa3abe8fe34ba05_200_200_square_200.jpeg"/>
-            </div>
             {comp} 
           </div>
         </div>

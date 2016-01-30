@@ -3,13 +3,15 @@
 import assert from 'assert'
 import fetch from 'isomorphic-fetch'
 import q from 'q'
+import _ from 'lodash'
 
 import { ENDPOINTS } from './../constants/endpoints'
-import { fJSON, fPost, redirectOnError } from './../utils/api'
+import { fJSON, fGetExternal, fPost, redirectOnError } from './../utils/api'
 import {
   CERTIFY_SOMEONE_START, 
   CERTIFY_SOMEONE_SUCCESS, 
-  CERTIFY_SOMEONE_ERROR 
+  CERTIFY_SOMEONE_ERROR,
+  CERTIFY_RECEIVER_USERNAME_SEARCH_RESULTS 
 } from './../constants/actionTypes'
 import { currentUserFetch } from './userActions'
 
@@ -57,4 +59,24 @@ export function certifySomeone(payload) {
     })
   })
 }
+
+export let usernameChanged = _.throttle(function (username) {
+  if (username.length > 0) {
+    return (function(dispatch) {
+      const url = ENDPOINTS.KEYBASE_LOOKUP + username
+      return fGetExternal(url)
+      .then(fJSON)
+      .then(payload => {
+        dispatch({type: CERTIFY_RECEIVER_USERNAME_SEARCH_RESULTS, payload: payload})
+      })
+    })  
+  } else {
+    return function(dispatch) {}
+  }
+}, 300)
+
+
+
+
+
 

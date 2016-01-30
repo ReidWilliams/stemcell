@@ -11,11 +11,13 @@ import {
   CERTIFY_STATE_FAILED, 
   CERTIFY_SOMEONE_START, 
   CERTIFY_SOMEONE_SUCCESS, 
-  CERTIFY_SOMEONE_ERROR 
+  CERTIFY_SOMEONE_ERROR,
+  CERTIFY_RECEIVER_USERNAME_SEARCH_RESULTS
 } from './../constants/actionTypes'
 
 
 const placeholder = {
+  receiverUsernameSearchResults: [],
   certifyState: CERTIFY_STATE_NOT_STARTED,
   error: undefined
 }
@@ -35,6 +37,10 @@ export function certifySomeone(state=placeholder, action) {
     case CERTIFY_SOMEONE_ERROR:
       newState.certifyState = CERTIFY_STATE_FAILED
       newState.error = action.payload
+      return newState
+
+    case CERTIFY_RECEIVER_USERNAME_SEARCH_RESULTS:
+      newState.receiverUsernameSearchResults = action.payload
       return newState
   
     default:

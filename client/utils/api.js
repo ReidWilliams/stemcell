@@ -35,7 +35,6 @@ export function fPost(url, body) {
     headers: {
       'Accept': 'application/json',
       'Content-Type': 'application/json',
-      'Authorization': 'Bearer ' + storage.get(AUTH_TOKEN)
     },
     body: JSON.stringify(body),
     credentials: 'same-origin'
@@ -49,9 +48,15 @@ export function fGet(url) {
     headers: {
       'Accept': 'application/json',
       'Content-Type': 'application/json',
-      'Authorization': 'Bearer ' + storage.get(AUTH_TOKEN)
     },
     credentials: 'same-origin'
+  })
+}
+
+export function fGetExternal(url) {
+  assert(_.isString(url))
+  return window.fetch(url, {
+    method: 'get'
   })
 }
 
