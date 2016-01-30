@@ -19,7 +19,9 @@ class CertificationCardsContainer extends Component {
             {this.props.currentUser.certifications.map((cert) => {
               return (
                 <div className="col-md-3">
-                  <CardComponent title={cert.title} description={cert.description} sender={"from " + cert.sender} />
+                  <div className="certification-card">
+                    <CardComponent title={cert.title} description={cert.description} sender={"from " + cert.sender} />
+                  </div>
                 </div>
               )
             })}

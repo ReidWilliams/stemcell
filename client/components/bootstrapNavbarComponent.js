@@ -26,7 +26,6 @@ import { Link } from 'react-router'
 class NavbarItem extends Component {
 	render() {
 		let activeClass = (this.props.activeRoute === this.props.href)? "active" : "inactive"
-		console.log(this.props.active)
 		return (
 			<li className={activeClass}>
 				<Link to={this.props.href}>

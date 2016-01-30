@@ -7,6 +7,7 @@ import { connect } from 'react-redux'
 // Locals
 import CertifyFormComponent from '../components/CertifyFormComponent'
 import UserProfileCardComponent from '../components/UserProfileCardComponent'
+import CardComponent from '../components/CardComponent'
 import * as userActions from './../actions/userActions'
 import * as certifyActions from '../actions/certifyActions'
 
@@ -59,6 +60,9 @@ class CreateCertificationPageContainer extends Component {
       <div>
         <div className="container">
           <div className="col-sm-6 col-sm-offset-3">
+            <div className="search-result-user-card">
+              <CardComponent title="Dan Elitzer" icon="https://s3.amazonaws.com/keybase_processed_uploads/840f766807fc8dd92aa3abe8fe34ba05_200_200_square_200.jpeg"/>
+            </div>
             {comp} 
           </div>
         </div>
