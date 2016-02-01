@@ -6,11 +6,6 @@ import _ from 'lodash'
 import assert from 'assert'
 import bodyParser from 'body-parser'
 import express from 'express'
-import moment from 'moment'
-import mongoose from 'mongoose'
-import q from 'q'
-import requestP from 'request-promise'
-import validator from 'validator'
 
 // Locals
 

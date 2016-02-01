@@ -4,7 +4,6 @@
 import express from 'express'
 import bodyParser from 'body-parser'
 import jwt from 'jsonwebtoken'
-import mongoose from 'mongoose'
 import path from 'path'
 import q from 'q'
 import webpack from 'webpack'
@@ -27,14 +26,6 @@ import webpackMiddlewareConfig from './webpackMiddleware.config'
 const DIST_PATH = path.join(__dirname + '/dist')
 const PUBLIC_PATH = path.join(__dirname + '/client')
 const SERVICES_PATH = path.join(__dirname + '/server/services')
-
-
-// Create DB Connections
-let serviceDbInstance = mongoose.createConnection(process.config.serviceDb, dbUtils.connectCallback)
-// attach the connection to our mongoose instance
-mongoose.serviceDb = serviceDbInstance
-// Use Q promises
-mongoose.Promise = require('q').Promise
 
 
 // Create the app
