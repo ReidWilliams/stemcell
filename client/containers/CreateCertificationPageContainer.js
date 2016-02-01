@@ -61,11 +61,8 @@ class CreateCertificationPageContainer extends Component {
 
     return(
       <div>
-        <div className="container">
-          <div className="col-sm-6 col-sm-offset-3">
-            {comp} 
-          </div>
-        </div>
+        <UserProfileCardComponent {...this.props}/>
+        {comp} 
       </div>
     )
   }

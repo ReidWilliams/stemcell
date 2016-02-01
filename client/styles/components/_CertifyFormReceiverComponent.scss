@@ -1,0 +1,40 @@
+/* Smiling User face and info card */
+
+.certify-form-receiver {
+  height: 400px;
+ 
+  background-color: #eeeeee;
+  @include font-circular
+  font-color: #000000;
+
+  .label-input {
+    width: 300px;
+    margin: 0 auto;
+    padding-top: 20px;
+    
+    h1 {
+      font-size: 20px;
+    }
+
+    input {
+      padding: 5px 15px 5px 15px;
+      border: none;
+
+      background-color: #dddddd;
+      font-size: 25px;
+
+      transition: background-color 0.2s ease;
+      &:focus {
+        outline: none;
+        background-color: #cccccc;
+      }
+    }
+  }
+
+  .results {
+    width: 300px;
+    margin: 0 auto;
+    margin-top: 50px;
+    margin-bottom: 20px;
+  }
+}

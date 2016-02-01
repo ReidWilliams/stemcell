@@ -72,9 +72,9 @@ let sendClient = (res) => {
 
 // // FIXME: consolidate these and in client routing. We're specifying routes in too many places.
 app.get('/', (req, res) => { sendClient(res) })
-app.get('/signup', (req, res) => { sendClient(res) })
+app.get('/me', (req, res) => { sendClient(res) })
 app.get('/login', (req, res) => { sendClient(res) })
-app.get('/dashboard*', (req, res) => { sendClient(res) })
+app.get('/certify', (req, res) => { sendClient(res) })
 
 
 // Export our app instance to start from the appropriate point

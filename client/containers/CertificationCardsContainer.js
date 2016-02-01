@@ -13,7 +13,7 @@ import CardComponent from '../components/CardComponent'
 class CertificationCardsContainer extends Component {
   render() {
     return(
-        <div className="container">
+        <div className="certification-cards-container container">
           <div className="row">
             
             {this.props.currentUser.certifications.map((cert) => {

@@ -1,12 +1,11 @@
 .search-result-user-card {
   .card-component {
-    width: 80px;
-    margin: 0 auto;
-    background: #FFFFFF;
     float: left;
+    margin-right: 20px;
 
     .icon {
-      width: 80px;
+      margin: 0 auto;
+      width: 50px;
       img {
         border-radius: 3px; 
         display: block;
@@ -17,7 +16,6 @@
     }
 
     .text {
-      position: relative;
       margin: 0 auto;
       margin-top: 4px;
       @include font-circular
