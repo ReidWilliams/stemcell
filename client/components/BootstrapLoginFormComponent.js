@@ -42,13 +42,13 @@ class LoginFormComponent extends Component {
       <div className="id-login">
         <form onSubmit={handleSubmit(containerSubmit)}>
           <h1>Login</h1>
-          <p>this is p</p>
+          <p>You&#39;ll need a keybase account to sign in. Ask Reid or Dan for an invitation if you don&#39;t already have one.</p>
           <div className="form-group">
-            <label>Username</label>
-            <input type="text" className="form-control" placeholder="reidw" {...username} />
+            <label>Keybase Username</label>
+            <input type="text" className="form-control" {...username} />
           </div>
           <div className="form-group">
-            <label>Password</label>
+            <label>Keybase Password</label>
             <input type="password" className="form-control" {...password} />
           </div>
           <button type="submit" className="btn btn-warning btn-lg" onClick={handleSubmit(containerSubmit)}>Login</button>
