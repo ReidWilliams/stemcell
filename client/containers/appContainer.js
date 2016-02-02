@@ -8,6 +8,7 @@ import ReactDOM from 'react-dom'
 import { Link } from 'react-router'
 
 import NavbarComponent from './../components/BootstrapNavbarComponent'
+import * as actions from './../actions/userActions'
 
 function mapStateToProps(state) {
   return {
@@ -16,10 +17,18 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return {}
+  return {
+    fetchContainerData: () => {
+      dispatch(actions.currentUserFetch(false))
+    }
+  }
 }
 
 class appContainer extends Component {
+  componentWillMount() {
+    this.props.fetchContainerData()
+  }
+
   render() {
 
   	// names and routes for navigation bar

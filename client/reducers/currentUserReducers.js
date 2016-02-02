@@ -60,6 +60,7 @@ export function currentUser(state=placeholderUser, action) {
       console.log('user fetch success', action)
       newState.isFetching = false
       newState.data = action.payload
+      newState.isLoggedIn = true
       return newState
         
     case CURRENT_USER_FETCH_ERROR:

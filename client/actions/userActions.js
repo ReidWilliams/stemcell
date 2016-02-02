@@ -40,7 +40,7 @@ export function currentUserFetchError(err) {
   }
 }
 
-export function currentUserFetch() {
+export function currentUserFetch(redirect = true) {
   return (dispatch) => {
     const fetchUrl = ENDPOINTS.USER_FETCH
 
@@ -48,7 +48,12 @@ export function currentUserFetch() {
     dispatch(unsetAppError(ERRORS.CURRENT_USER_FETCH))
 
     return fGet(fetchUrl)
-      .then(redirectOn401)
+      .then(function(payload) {
+        if (redirect) {
+          return redirectOn401(payload)
+        }
+        return payload
+      })
       .then(fJSON)
       .then((payload) => {
         dispatch(currentUserFetchSuccess(payload))
