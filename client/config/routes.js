@@ -13,7 +13,6 @@ import CertificationsPageContainer from './../containers/CertificationsPageConta
 import CreateCertificationPageContainer from './../containers/CreateCertificationPageContainer'
 import LandingContainer from './../containers/LandingContainer'
 import LoginContainer from './../containers/LoginContainer'
-import signUpContainer from './../containers/signUpContainer'
 import { currentUserFetch } from './../actions/userActions'
 
 module.exports = (appStore) => {
