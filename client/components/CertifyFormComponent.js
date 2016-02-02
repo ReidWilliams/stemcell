@@ -42,11 +42,11 @@ class CertifyFormComponent extends Component {
             <div className="certify-form">
               <div className="title-details col-md-6">
                 <div className="title">
-                  <input type="text" placeholder="One of my best piano students" {...description} />
+                  <input type="text" placeholder="One of my best piano students" {...title} />
                 </div>
                 
                 <div className="details">
-                  <textarea placeholder={textAreaPlaceholder} {...title} />
+                  <textarea placeholder={textAreaPlaceholder} {...description} />
                 </div>
 
                 <div className="button">
