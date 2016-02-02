@@ -29,8 +29,8 @@ let configDefaults = {
   }
 };
 
-
-function appConfig() {
+// FIXME: clean this up and make simpler. Initially we don't need a production mode
+function appConfig(config) {
   
   config.development = _.cloneDeep(configDefaults);
   config.development.port = process.env.PORT || 3000;
@@ -54,5 +54,5 @@ function appConfig() {
   return config;
 };
 
-process.config = new AppConfig({})[env];
+process.config = appConfig(process.config)[env];
 process.root = process.config.root;
