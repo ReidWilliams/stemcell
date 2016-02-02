@@ -42,6 +42,7 @@ class LoginFormComponent extends Component {
       <div className="id-login">
         <form onSubmit={handleSubmit(containerSubmit)}>
           <h1>Login</h1>
+          <p>this is p</p>
           <div className="form-group">
             <label>Username</label>
             <input type="text" className="form-control" placeholder="reidw" {...username} />
