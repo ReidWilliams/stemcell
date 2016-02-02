@@ -12,17 +12,10 @@ let rootPath = path.normalize(path.join(__dirname, './../'));
 // Defaults used in all configs regardless of env
 let defaultConfig = function(config) {
   config.root = rootPath
-};
-
-function developmentConfig(config) {
   config.port = process.env.PORT || 3000;
-  // config.protocol = 'https';
-  // config.domain = 'localhost:3000';
-  // config.apiServer = 'http://localhost:3000';
 };
 
 defaultConfig(process.config)
-developmentConfig(process.config)
 
-console.log('config is')
-console.log(process.config)
+console.log('root is')
+console.log(process.config.root)
