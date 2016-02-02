@@ -1,9 +1,9 @@
 'use strict'
 
  // System Deps
-import autoprefixer from 'autoprefixer';
-import webpack from 'webpack';
-import path from 'path';
+var autoprefixer =require('autoprefixer');
+var webpack =require('webpack');
+var path =require('path');
 
 
 // Only export the config to be consumed by webpack
@@ -18,8 +18,8 @@ module.exports = {
   
   // Output build path
   output: {
-    path: '/',
-    publicPath: 'http://localhost:3000/dist',
+    path: path.join(__dirname, '/dist/'),
+    publicPath: '/dist/',
     filename: 'bundle.js'
   },
 

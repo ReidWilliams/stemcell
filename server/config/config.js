@@ -30,7 +30,7 @@ let configDefaults = {
 };
 
 
-function AppConfig(config) {
+function appConfig() {
   
   config.development = _.cloneDeep(configDefaults);
   config.development.port = process.env.PORT || 3000;
@@ -54,5 +54,5 @@ function AppConfig(config) {
   return config;
 };
 
-// process.config = new AppConfig({})[env];
-// process.root = process.config.root;
+process.config = new AppConfig({})[env];
+process.root = process.config.root;
