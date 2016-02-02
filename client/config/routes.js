@@ -8,7 +8,7 @@ import { Provider } from 'react-redux'
 import { createStore, combineReducers } from 'redux'
 import { Router, Route, IndexRoute } from 'react-router'
 
-import AppContainer from './../containers/AppContainer'
+import AppContainer from '../containers/AppContainer'
 import CertificationsPageContainer from './../containers/CertificationsPageContainer'
 import CreateCertificationPageContainer from './../containers/CreateCertificationPageContainer'
 import LandingContainer from './../containers/LandingContainer'
