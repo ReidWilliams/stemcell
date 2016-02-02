@@ -10,9 +10,7 @@ import express from 'express'
 // Locals
 
 import fractionErrors from './../../utils/fractionErrors'
-import middlewareAuth from './../../middleware/tokenAuth'
 import middlewareErrors from './../../middleware/errorHandler'
-import middlewareInternal from './../../middleware/ensureInternal'
 
 // Constants
 

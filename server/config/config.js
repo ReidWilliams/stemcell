@@ -34,14 +34,14 @@ function AppConfig(config) {
   
   config.development = _.cloneDeep(configDefaults);
   config.development.port = process.env.PORT || 3000;
-  config.development.protocol = 'https';
+  // config.development.protocol = 'https';
   config.development.domain = 'localhost:3000';
   config.development.apiServer = 'http://localhost:3000';
   config.development.serviceDb = 'mongodb://localhost/fraction_development';
 
   config.test = _.cloneDeep(configDefaults);
   config.test.port = process.env.PORT || 3000;
-  config.test.protocol = 'https';
+  // config.test.protocol = 'https';
   config.test.domain = 'localhost:3000';
   config.test.apiServer = 'http://localhost:3000';
   // IMPORTANT: Ensure the test DB has the word 'test' in it
@@ -54,5 +54,5 @@ function AppConfig(config) {
   return config;
 };
 
-process.config = new AppConfig({})[env];
-process.root = process.config.root;
+// process.config = new AppConfig({})[env];
+// process.root = process.config.root;
