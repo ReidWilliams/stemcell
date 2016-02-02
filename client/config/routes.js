@@ -21,7 +21,6 @@ module.exports = (appStore) => {
   return (
     <Route path="/" component={ AppContainer }>
       <IndexRoute component={ LandingContainer } />
-      <Route path="signup" component={ signUpContainer } />
       <Route path="login" component={ LoginContainer } />
       <Route path="me" component={ CertificationsPageContainer } />
       <Route path="certify" component={ CreateCertificationPageContainer } />
