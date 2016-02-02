@@ -78,20 +78,20 @@ class CertifyFormReceiverComponent extends Component {
     // to get onChange events from receiver input
     return (  
       <div className="certify-form-receiver">
+        <div className="objects">
+            <div className="label-input">
+              <h1>{label}</h1>
 
-          <div className="label-input">
-            <h1>{label}</h1>
+              <input 
+                type="text" 
+                className={inputClass}
+                onChange={this.props.receiverChanged.bind(this)}
+                value={this.props.receiver}
+                placeholder="keybase username" />
+            </div>
 
-            <input 
-              type="text" 
-              className={inputClass}
-              onChange={this.props.receiverChanged.bind(this)}
-              value={this.props.receiver}
-              placeholder="keybase username" />
-          </div>
-
-          {receiverComponent}  
-
+            {receiverComponent}  
+        </div>
       </div>
     )
   }

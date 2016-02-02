@@ -20,9 +20,9 @@ function mapDispatchToProps(dispatch) {
     // when the form is submitted
     containerSubmit: (formObject) => {
 
-      // FIXME: just for testing
-      formObject.username = 'tkodev'
-      formObject.password = 'IDEObitsblocks'
+      // // FIXME: just for testing
+      // formObject.username = 'tkodev'
+      // formObject.password = 'IDEObitsblocks'
 
       dispatch(actions.login(formObject.username, formObject.password))
       .then(() => {

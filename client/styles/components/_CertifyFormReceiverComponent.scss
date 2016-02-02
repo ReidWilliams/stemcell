@@ -1,58 +1,63 @@
 /* Search for keybase users */
 
 .certify-form-receiver {
-  height: 400px;
- 
   background-color: #eeeeee;
-  @include font-circular
-  font-color: #000000;
+  color: #333344;
+  height: 500px;
+  padding: 0px;
 
-  .label-input {
+  .objects {
     width: 300px;
-    margin: 0 auto;
-    padding-top: 20px;
-    
-    h1 {
-      font-size: 20px;
-    }
+    float: right;
+    @include font-circular
 
-    input {
-      padding: 5px 15px 5px 15px;
-      border: none;
+    .label-input {
+      width: 300px;
+      margin: 0 auto;
+      padding-top: 20px;
+      
+      h1 {
+        font-size: 18px;
+      }
 
-      background-color: #dddddd;
-      font-size: 25px;
+      input {
+        padding: 5px 15px 5px 15px;
+        border: none;
 
-      transition: background-color 0.2s ease;
-      &:focus {
-        outline: none;
-        background-color: #cccccc;
+        background-color: #dddddd;
+        font-size: 20px;
+
+        transition: background-color 0.2s ease;
+        &:focus {
+          outline: none;
+          background-color: #cccccc;
+        }
+      }
+
+      .input-selected {
+        color: #1F9CD7
       }
     }
 
-    .input-selected {
-      color: #1F9CD7
+    .results {
+      width: 300px;
+      margin: 0 auto;
+      margin-top: 50px;
+      margin-bottom: 20px;
     }
-  }
 
-  .results {
-    width: 300px;
-    margin: 0 auto;
-    margin-top: 50px;
-    margin-bottom: 20px;
-  }
+    .selected-receiver {
+      width: 300px;
+      margin: 0 auto;
+      margin-top: 20px;
 
-  .selected-receiver {
-    width: 300px;
-    margin: 0 auto;
-    margin-top: 20px;
+        img {
+          border-radius: 10px; 
+          display: block;
+          width: 150px;
+          height: 150px;
+        }
 
-      img {
-        border-radius: 10px; 
-        display: block;
-        width: 150px;
-        height: 150px;
-      }
-
+    }
   }
 }

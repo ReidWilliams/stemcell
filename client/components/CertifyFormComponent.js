@@ -14,10 +14,20 @@ import CertifyFormReceiverComponent from './CertifyFormReceiverComponent'
 
 class CertifyFormComponent extends Component {
   render() {
-    const { fields: { title, description }, handleSubmit, containerSubmit } = this.props
+    const { fields: { title, description }, handleSubmit, containerSubmit, receiver } = this.props
       // With redux-form we can pass a function to intercept submitting. handleSubmit is redux-forms's function
       // that will update the redux state. Submit is our function, supplied by a parent container to handle form
       // submission.
+
+    let localContainerSubmit = function(formObject) {
+      console.log('submitting')
+      debugger
+      formObject.receiver = receiver
+      containerSubmit(formObject)
+    }
+
+    const placeholderName = this.props.receiverIsSelected? receiver : 'Mary'
+    const textAreaPlaceholder = 'I have taught over 2,000 students and ' + placeholderName + ' is one of the best'
   
     // Don't use redux-form for receiver field
     return(  
@@ -25,23 +35,27 @@ class CertifyFormComponent extends Component {
         <div className="row">
           <form onSubmit={handleSubmit(containerSubmit)}>
             
-            <div className="col-md-4">
+            <div className="col-md-6">
               <CertifyFormReceiverComponent {...this.props} />
             </div>
 
-            <div className="col-md-8">
-              <div className="form-group">
-                <label>What did he or she do that is awesome?</label>
-                <input type="textarea" className="form-control" {...description} />
+            <div className="certify-form">
+              <div className="title-details col-md-6">
+                <div className="title">
+                  <input type="text" placeholder="One of my best piano students" {...description} />
+                </div>
+                
+                <div className="details">
+                  <textarea placeholder={textAreaPlaceholder} {...title} />
+                </div>
+
+                <div className="button">
+                  <button type="submit" className="btn btn-warning btn-lg" 
+                  onClick={handleSubmit(localContainerSubmit)}>Certify!</button>
+                </div>
               </div>
-              
-              <div className="form-group">
-                <label>Give your certificate a title</label>
-                <input type="text" className="form-control" {...title} />
-              </div>
-              
-              <button type="submit" className="btn btn-warning btn-lg" onClick={handleSubmit(containerSubmit)}>Certify!</button>
             </div>
+
           </form>
         </div>
       </div>

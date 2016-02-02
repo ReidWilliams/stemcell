@@ -33,6 +33,3 @@ class CertificationCardsContainer extends Component {
 }
 
 export default CertificationCardsContainer
-
-
-// <p>You can really only <Link to="/logout">log out</Link>...</p>

@@ -43,6 +43,10 @@ function mapDispatchToProps(dispatch) {
 }
 
 class CreateCertificationPageContainer extends Component {
+  componentWillMount() {
+    this.props.fetchContainerData()
+  }
+
   render() {
     let comp = undefined
 
