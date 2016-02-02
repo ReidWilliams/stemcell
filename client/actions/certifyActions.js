@@ -11,7 +11,9 @@ import {
   CERTIFY_SOMEONE_START, 
   CERTIFY_SOMEONE_SUCCESS, 
   CERTIFY_SOMEONE_ERROR,
-  CERTIFY_RECEIVER_USERNAME_SEARCH_RESULTS 
+  CERTIFY_RECEIVER_USERNAME_SEARCH_RESULTS,
+  CERTIFY_RECEIVER_SELECTED,
+  CERTIFY_RECEIVER_CHANGED
 } from './../constants/actionTypes'
 import { currentUserFetch } from './userActions'
 
@@ -60,20 +62,32 @@ export function certifySomeone(payload) {
   })
 }
 
-export let usernameChanged = _.throttle(function (username) {
+let throttledGet = _.throttle(fGetExternal, 300)
+
+export function receiverChanged(username) {
   if (username.length > 0) {
     return (function(dispatch) {
+      dispatch({type: CERTIFY_RECEIVER_CHANGED, payload: username})
       const url = ENDPOINTS.KEYBASE_LOOKUP + username
-      return fGetExternal(url)
+      return throttledGet(url)
       .then(fJSON)
       .then(payload => {
         dispatch({type: CERTIFY_RECEIVER_USERNAME_SEARCH_RESULTS, payload: payload})
       })
     })  
   } else {
-    return function(dispatch) {}
+      return function(dispatch) {
+        dispatch({type: CERTIFY_RECEIVER_CHANGED, payload: username})
+        dispatch({type: CERTIFY_RECEIVER_USERNAME_SEARCH_RESULTS, payload: null})
+      }
   }
-}, 300)
+}
+
+export function receiverSelected(username) {
+  return function(dispatch) {
+    dispatch({type: CERTIFY_RECEIVER_SELECTED, payload:username})
+  }
+}
 
 
 

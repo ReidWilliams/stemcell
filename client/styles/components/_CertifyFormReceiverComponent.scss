@@ -1,4 +1,4 @@
-/* Smiling User face and info card */
+/* Search for keybase users */
 
 .certify-form-receiver {
   height: 400px;
@@ -29,6 +29,10 @@
         background-color: #cccccc;
       }
     }
+
+    .input-selected {
+      color: #1F9CD7
+    }
   }
 
   .results {
@@ -36,5 +40,19 @@
     margin: 0 auto;
     margin-top: 50px;
     margin-bottom: 20px;
+  }
+
+  .selected-receiver {
+    width: 300px;
+    margin: 0 auto;
+    margin-top: 20px;
+
+      img {
+        border-radius: 10px; 
+        display: block;
+        width: 150px;
+        height: 150px;
+      }
+
   }
 }

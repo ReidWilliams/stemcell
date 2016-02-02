@@ -19,7 +19,9 @@ function mapStateToProps(state) {
     currentUser: state.currentUser.data,
     certifyPerson: state.certifyPerson,
     appErrors: state.appErrors,
-    receiverUsernameSearchResults: state.receiverUsernameSearchResults
+    receiverUsernameSearchResults: state.receiverUsernameSearchResults,
+    receiver: state.certifyPerson.receiver,
+    receiverIsSelected: state.certifyPerson.receiverIsSelected
   }
 }
 
@@ -31,8 +33,11 @@ function mapDispatchToProps(dispatch) {
     containerSubmit: function(formObject) {
       dispatch(certifyActions.certifySomeone(formObject))
     },
-    usernameChanged: function(event) {
-      dispatch(certifyActions.usernameChanged(event.target.value))
+    receiverChanged: function(event) {
+      dispatch(certifyActions.receiverChanged(event.target.value))
+    },
+    usernameSearchResultClicked(username) {
+      dispatch(certifyActions.receiverSelected(username))
     }
   }
 }
@@ -61,7 +66,7 @@ class CreateCertificationPageContainer extends Component {
 
     return(
       <div>
-        <UserProfileCardComponent {...this.props}/>
+        <UserProfileCardComponent {...this.props} subTitle="Tell the world how great someone is"/>
         {comp} 
       </div>
     )
