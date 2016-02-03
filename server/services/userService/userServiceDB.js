@@ -7,17 +7,68 @@ import assert from 'assert'
 
 import parseInit from '../../config/parseTokens'
 parseInit(Parse)
+Parse.Cloud.useMasterKey()
 
-export let getUserDetails = function(username) {
+// returns plain object with fields we care about
+export let parseUserToPlainObject = function(parseUserObj) {
+	let user = {}
+	user.firstName = parseUserObj.get('firstName')
+	user.lastName = parseUserObj.get('lastName')
+	user.username = parseUserObj.get('userName')
+	return user
+}
+
+// This will be a validated keybase username
+export let getOrCreateUser = function(username, firstName, lastName) {
+	assert(username, 'username was empty')
 	let deferred = q.defer()
 
 	let userQuery = new Parse.Query(Parse.User)
-	userQuery.equalTo("username", username)
+	userQuery.equalTo('username', username)
 	userQuery.first().then((obj) => {
-		let user = {}
-		user.firstName = obj.get('firstName')
-		user.lastName = obj.get('lastName')
-		deferred.resolve(user)
+		if (obj) {
+			let user = parseUserToPlainObject(obj)
+			deferred.resolve(user)
+		} else {
+			let userObj = new Parse.User()
+			userObj.set('firstName', firstName)
+			userObj.set('lastName', lastName)
+			userObj.set('username', username)
+			userObj.set('password', ' ')
+			userObj.save().then(function(saved) {
+				let user = parseUserToPlainObject(saved)
+				deferred.resolve(user)
+			}, function(err) {
+				console.log(err)
+				deferred.reject(err)
+			})
+		}
+	}, (err) => {
+		console.log(err)
+		deferred.reject(err)
+	})
+
+	return deferred.promise
+}
+
+export let deleteUser = function(username) {
+	assert(username, 'username was empty')
+	let deferred = q.defer()
+
+	let userQuery = new Parse.Query(Parse.User)
+	userQuery.equalTo('username', username)
+	userQuery.first().then((obj) => {
+		if (obj) {
+			obj.destroy().then(function() {
+				deferred.resolve()
+			}, function(err) {
+				console.log(err)
+				deferred.reject(err)
+			})
+		} else {
+				console.log('WARNING, called destory on non-existent parse user object: ' + username)
+				deferred.resolve()
+		}
 	}, (err) => {
 		console.log(err)
 		deferred.reject(err)
@@ -95,7 +146,8 @@ export let createCertification = function(sender, object) {
 	return deferred.promise
 }
 
-let getUserOrEmpty = function(username) {
+// returns parse user or undefined
+export let getUserOrEmpty = function(username) {
 	let deferred = q.defer()
 
 	let userQuery = new Parse.Query(Parse.User)

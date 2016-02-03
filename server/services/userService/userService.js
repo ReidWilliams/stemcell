@@ -3,8 +3,9 @@
 // Globals
 
 import express from 'express'
+import assert from 'assert'
 
-import { getCertifications, getUserDetails, createCertification } from './userServiceDB'
+import { getCertifications, createCertification, getOrCreateUser } from './userServiceDB'
 
 // Constants
 
@@ -21,10 +22,22 @@ let router = express.Router()
 // Public API Functions
 // ensuring authentication handled outside this module
 let getUser = function(req, res) {  
+	console.log(req.user.basics)
 	let username = req.user.basics.username
+	let name = req.user.profile.full_name
+	let firstName = ''
+	let lastName = ''
+	if (name) {
+		let names = name.split(' ')
+		firstName = names[0] || ''
+		lastName = names[1] || ''
+	}
+
+	console.log('names from keybase are' + firstName + ' ' + lastName)
 	let payload = {}
 
-	getUserDetails(username).then((details) => {
+	getOrCreateUser(username, firstName, lastName).then((details) => {
+		// user db's first and last names b/c we can override what key base has
 		payload.firstName = details.firstName
 		payload.lastName = details.lastName
 	}).then(() => {
