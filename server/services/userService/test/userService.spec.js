@@ -32,6 +32,7 @@ describe('User service', () => {
 			return getOrCreateUser(testUser.username, testUser.firstName, testUser.lastName)
 		}).then(function(user) {
 			expect(user.firstName).toBe('Testy')
+			expect(user.parseObject).toBeDefined()
 			return deleteUser(testUser.username)
 		}).then(function() {
 			return getUserOrEmpty(testUser.username)

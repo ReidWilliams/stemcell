@@ -15,6 +15,7 @@ export let parseUserToPlainObject = function(parseUserObj) {
 	user.firstName = parseUserObj.get('firstName')
 	user.lastName = parseUserObj.get('lastName')
 	user.username = parseUserObj.get('userName')
+	user.parseObject = parseUserObj
 	return user
 }
 
@@ -111,17 +112,20 @@ export let getCertifications = function(username) {
 export let createCertification = function(sender, object) {
 	console.log(object)
 	let { title, description, receiver } = object
+	assert(receiver, 'receiver empty')
+	assert(sender, 'sender')
 	let deferred = q.defer()
 	let senderObj
 	let receiverObj
 	let Certification = Parse.Object.extend('Certification');
 
+	console.log('receiver is ' + receiver)
+
 	getUserOrEmpty(sender).then(function(obj) {
 		senderObj = obj
-	}).then(function() {
-		return getUserOrEmpty(receiver)
+		return getOrCreateUser(receiver, '', '') // FIXME: need to get receiver's names from the client
 	}).then(function(obj) {
-		receiverObj = obj
+		receiverObj = obj.parseObject
 	}).then(function() {
 		let Certification = Parse.Object.extend('Certification');
 
