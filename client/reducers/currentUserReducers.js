@@ -17,7 +17,6 @@ import {
   CURRENT_USER_FETCH_SUCCESS, 
   CURRENT_USER_FETCH_ERROR 
 } from './../constants/actionTypes'
-import { AUTH_TOKEN } from './../constants/storageKeys'
 
 
 const placeholderUser = {

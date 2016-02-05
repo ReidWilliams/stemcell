@@ -4,8 +4,6 @@ import assert from 'assert'
 import _ from 'lodash'
 import q from 'q'
 
-import storage from './../vendor/store'
-import { AUTH_TOKEN } from './../constants/storageKeys'
 import { history } from '../config/history'
 
 export function fJSON(response) {
