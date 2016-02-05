@@ -3,12 +3,12 @@ A forkable starting point for node-react-redux web apps.
 
 ## Features
 * Written (mostly) in [ES2015](https://babeljs.io/docs/learn-es2015/) JavaScript with Babel transpiling
-* [React](https://facebook.github.io/react/) for rendering
+* [React](https://facebook.github.io/react/) for client rendering
 * [React hot loader](http://gaearon.github.io/react-hot-loader/) to hot reload client
 * [Redux](https://github.com/rackt/redux) for storing client app state
-* [Redux dev tools](https://github.com/gaearon/redux-devtools)
+* [Redux dev tools](https://github.com/gaearon/redux-devtools) to ???
 * [React-redux](https://github.com/rackt/react-redux) to connect react components to the redux store
-* The react [container](https://medium.com/@learnreact/container-components-c0e67432e005) pattern
+* Uses the react [container](https://medium.com/@learnreact/container-components-c0e67432e005) pattern to separate stateful and stateless react components
 * [Webpack](https://webpack.github.io) to build and deliver client code and assets
 * [Nodemon](https://github.com/remy/nodemon) To restart server on source changes
 * [ES Lint](http://eslint.org/) for code linting #FIXME
