@@ -6,7 +6,7 @@ A forkable starting point for node-react-redux web apps.
 * [React](https://facebook.github.io/react/) for client rendering
 * [React hot loader](http://gaearon.github.io/react-hot-loader/) to hot reload client
 * [Redux](https://github.com/rackt/redux) for storing client app state
-* [Redux dev tools](https://github.com/gaearon/redux-devtools) to ???
+* [Redux dev tools](https://github.com/gaearon/redux-devtools) to #FIXME
 * [React-redux](https://github.com/rackt/react-redux) to connect react components to the redux store
 * Uses the react [container](https://medium.com/@learnreact/container-components-c0e67432e005) pattern to separate stateful and stateless react components
 * [Webpack](https://webpack.github.io) to build and deliver client code and assets
@@ -47,6 +47,7 @@ stemcell
 ├── package.json                     # Sets up npm dependencies and run scripts
 ├── webpack.config.js                # Webpack configuration
 └── webpackMiddleware.config.js      # Webpack middleware configuration
+```
 
 ## Notes
 Server is configured to use webpack middleware and hot-reloading, so client code, style, and assets are bundled and served as part of the express server
