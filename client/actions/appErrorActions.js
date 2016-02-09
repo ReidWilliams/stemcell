@@ -1,5 +1,4 @@
-'use strict'
-
+'use strict'  
 
 import { SET_APP_ERROR, UNSET_APP_ERROR } from './../constants/actionTypes'
 

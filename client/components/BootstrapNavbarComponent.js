@@ -20,7 +20,7 @@
 */
 
 // Globals
-import React, { Component } from 'react'
+import React, { Component, PropTypes } from 'react'
 import { Link } from 'react-router'
 
 class NavbarItem extends Component {
@@ -36,7 +36,7 @@ class NavbarItem extends Component {
 	}
 }
 
-export default class BootstrapNavbarComponent extends Component {
+class BootstrapNavbarComponent extends Component {
   render() {
   	let activeRoute = this.props.activeRoute
     return(
@@ -54,4 +54,11 @@ export default class BootstrapNavbarComponent extends Component {
     )
   }
 }
+
+BootstrapNavbarComponent.propTypes = {
+	items: PropTypes.object.isRequired,
+	activeRoute: PropTypes.string.isRequired
+}
+
+export default BootstrapNavbarComponent
 

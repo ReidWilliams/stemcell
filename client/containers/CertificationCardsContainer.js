@@ -20,7 +20,7 @@ class CertificationCardsContainer extends Component {
               return (
                 <div className="col-md-3">
                   <div className="certification-card">
-                    <CardComponent title={cert.title} description={cert.description} sender={"from " + cert.sender} />
+                    <CardComponent header={cert.title} middle={cert.description} footer={"from " + cert.sender} />
                   </div>
                 </div>
               )

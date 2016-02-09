@@ -49,7 +49,25 @@ stemcell
 └── webpackMiddleware.config.js      # Webpack middleware configuration
 ```
 
+## Getting started
+### common patterns and tasks FIXME
+
 ## Notes
-Server is configured to use webpack middleware and hot-reloading, so client code, style, and assets are bundled and served as part of the express server
+Server is configured to use webpack middleware and hot-reloading, so client code and style are combined and served as a single bundle.js file referenced by index.html. Index.html also directly references the Bootstrap css.
+
+## Future patterns
+Action source files only have action creators. Dispatching actions happens in containers. Containers should have minimal
+rendering, instead relying on components.
+
+Action creators don't return static objects with type and payload. Instead action creators are thunks, and return a function that expects current state, which returns updated state. Reducers accept an action creator's thunk and apply it to current state to get a new state.
+
+Use Firebase to build prototypes with as little server side code as possible.
+
+Server errors like 401 unauthorized are caght in api.js and then translated to an app specific error type that's returned in a
+resolved promise. Calling function which should be in a container catches error and redirects browser history.
+
+Browser redirects should go through the redux app state, using redux-simple-router.
+
+
 
 

@@ -13,7 +13,6 @@ import url from 'url'
 // Local Dependencies
 // Note: always bring the config in first
 import config from './server/config/config'
-import dbUtils from './server/utils/dbUtils'
 import loadServices from './server/services/services'
 
 import webpackConfig from './webpack.config'
@@ -23,8 +22,8 @@ import webpackMiddlewareConfig from './webpackMiddleware.config'
 
 
 // Route normalization
-const DIST_PATH = path.join(__dirname + '/dist')
-const PUBLIC_PATH = path.join(__dirname + '/client')
+const CLIENT_PATH = path.join(__dirname + '/client')
+const ASSETS_PATH = path.join(__dirname + '/client/assets')
 const SERVICES_PATH = path.join(__dirname + '/server/services')
 
 
@@ -61,13 +60,11 @@ loadServices(app)
 
 
 // Handle static files
-app.use('/public', express.static(PUBLIC_PATH))
-app.use('/dist', express.static(DIST_PATH))
-
+app.use('/assets', express.static(ASSETS_PATH))
 
 // Handle client routes
 let sendClient = (res) => {
-  return res.sendFile(path.join(PUBLIC_PATH + '/index.html'))
+  return res.sendFile(path.join(CLIENT_PATH + '/index.html'))
 }
 
 // // FIXME: consolidate these and in client routing. We're specifying routes in too many places.

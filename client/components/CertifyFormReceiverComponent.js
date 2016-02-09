@@ -24,7 +24,7 @@ class SearchResults extends Component {
           return (
             <div key={name} className="search-result-user-card" 
               onClick={function() {usernameSearchResultClicked(name)}}>
-              <CardComponent title={name} icon={icon}/>
+              <CardComponent header={name} icon={icon}/>
             </div>
             )
         })}
@@ -48,7 +48,7 @@ class SelectedReceiver extends Component {
 
     return (
     <div className="selected-receiver">
-      <CardComponent title={''} icon={icon} />
+      <CardComponent header={''} icon={icon} />
     </div>
     )
   }

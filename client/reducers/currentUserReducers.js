@@ -1,9 +1,5 @@
 'use strict'
 
-// Globals
-import { combineReducers } from 'redux'
-import storage from './../vendor/store'
-
 import { 
   SIGN_UP_START, 
   SIGN_UP_SUCCESS, 
@@ -71,9 +67,5 @@ export function currentUser(state=placeholderUser, action) {
       return state
   }
 }
-
-// const rootReducer = combineReducers({
-//   currentUser
-// })
 
 export default currentUser

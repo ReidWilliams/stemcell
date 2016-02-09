@@ -63,14 +63,6 @@ class CertifyFormComponent extends Component {
   }
 }
 
-
-
-// CertifyFormComponent.propTypes = {
-//   submit: PropTypes.func.isRequired,
-//   appErrors: PropTypes.array.isRequired,
-//   currentUser: PropTypes.object.isRequired
-// }
-
 export default reduxForm({
   form: 'CertifyFormComponent',
   fields: ['title', 'description']

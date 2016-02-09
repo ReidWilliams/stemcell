@@ -21,7 +21,7 @@ export default class LandingPart1 extends Component {
             <h2>Certify anything big or small, from sharing the secrets of a good martini to recommending your best music student</h2>`
           </div>
           <div className="col-md-6">
-            <img src="/public/assets/images/home/sash_fill.png" className="img-responsive center-block" style={imgStyle}></img>
+            <img src="/assets/images/home/sash_fill.png" className="img-responsive center-block" style={imgStyle}></img>
           </div>
         </div>
       </div>

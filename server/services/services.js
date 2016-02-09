@@ -7,7 +7,6 @@ import session from 'express-session'
 // Locals
 import { loadService, loadServiceWithMiddleware, loadServiceEnsureAuthenticated } from './loadService'
 
-import yes from './yes/yesService'
 import user from './userService/userService'
 import auth from './authService/authService'
 import keybaseStrategy from '../middleware/keybasePassportStrategy'

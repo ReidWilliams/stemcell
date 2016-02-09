@@ -1,9 +1,5 @@
 'use strict'
 
-// Globals
-import { combineReducers } from 'redux'
-import storage from './../vendor/store'
-
 import { 
   CERTIFY_STATE_NOT_STARTED, 
   CERTIFY_STATE_STARTED, 

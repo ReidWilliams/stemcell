@@ -1,9 +1,5 @@
 'use strict'
 
-import _ from 'lodash'
-import assert from 'assert'
-import fetch from 'isomorphic-fetch'
-
 import { ENDPOINTS } from './../constants/endpoints'
 import { 
   CURRENT_USER_FETCH_START,         

@@ -1,8 +1,7 @@
 'use strict'
 
-import assert from 'assert'
-import fetch from 'isomorphic-fetch'
-import q from 'q'
+// Action creators for certifying a user from something
+
 import _ from 'lodash'
 
 import { ENDPOINTS } from './../constants/endpoints'
@@ -18,8 +17,6 @@ import {
 import { currentUserFetch } from './userActions'
 
 let redirectOn401 = redirectOnError(401, '/login')
-
-// LOG_IN Action Creators
 
 export function certifySomeoneStart() {
   return {
@@ -44,6 +41,7 @@ export function certifySomeoneError(err) {
 
 // Action creator. Returns a function of dispatch. This is the pattern
 // when using thunk middleware for dispatching async actions.
+
 export function certifySomeone(payload) {
   return (function(dispatch) {
     dispatch(certifySomeoneStart)
@@ -58,12 +56,14 @@ export function certifySomeone(payload) {
       } else {
         dispatch(certifySomeoneError(payload))
       }
-    })
+    }) // FIXME: should be catching b/c redirectOn401 throws on redirect
   })
 }
 
 let throttledGet = _.throttle(fGetExternal, 300)
 
+// Called when form field where user types certificaton receiver's
+// username changes
 export function receiverChanged(username) {
   if (username.length > 0) {
     return (function(dispatch) {

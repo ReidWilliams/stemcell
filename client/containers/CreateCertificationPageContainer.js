@@ -7,7 +7,6 @@ import { connect } from 'react-redux'
 // Locals
 import CertifyFormComponent from '../components/CertifyFormComponent'
 import UserProfileCardComponent from '../components/UserProfileCardComponent'
-import CardComponent from '../components/CardComponent'
 import * as userActions from './../actions/userActions'
 import * as certifyActions from '../actions/certifyActions'
 

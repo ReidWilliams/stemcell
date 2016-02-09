@@ -1,7 +1,5 @@
 'use strict'
 
-import assert from 'assert'
-import fetch from 'isomorphic-fetch'
 import q from 'q'
 
 import { ENDPOINTS } from './../constants/endpoints'

@@ -67,7 +67,7 @@ export function fGetExternal(url) {
 export function redirectOnError(errorCode, redirectPath) {
   let redirect = function(res) {
     if (res.status === errorCode) {
-      history.replaceState(null, '/login')
+      history.replaceState(null, redirectPath)
       return q.reject(errorCode)
     }
     

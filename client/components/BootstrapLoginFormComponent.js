@@ -13,25 +13,6 @@ import ReactDOM from 'react-dom'
 import { reduxForm } from 'redux-form'
 import { Link } from 'react-router'
 
-// import { CURRENT_USER_ERROR } from './../constants/errorTypes'
-
-
-// const validate = (values) => {
-//   const errors = {}
-//   if (!values.email) {
-//     errors.email = 'Required'
-//   } else if (!validator.isEmail(values.email)) {
-//     errors.email = 'Must be a valid email'
-//   }
-//   if (!values.password) {
-//     errors.password = 'Required'
-//   } else if (values.password.length < 8) {
-//     errors.password = 'Password too short' 
-//   }
-//   return errors
-// }
-
-
 class LoginFormComponent extends Component {
   render() {
     const { fields: { username, password }, handleSubmit, containerSubmit } = this.props
@@ -59,12 +40,10 @@ class LoginFormComponent extends Component {
 }
 
 
-
-// LoginFormComponent.propTypes = {
-//   submit: PropTypes.func.isRequired,
-//   appErrors: PropTypes.array.isRequired,
-//   currentUser: PropTypes.object.isRequired
-// }
+LoginFormComponent.propTypes = {
+  containerSubmit: PropTypes.func.isRequired
+  // don't check other fields, they're handled by redux-form
+}
 
 LoginFormComponent = reduxForm({
   form: 'BootstrapLoginFormComponent',

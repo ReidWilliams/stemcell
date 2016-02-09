@@ -1,7 +1,6 @@
 'use strict'
 
 import _ from 'lodash'
-import { combineReducers } from 'redux'
 import { SET_APP_ERROR, UNSET_APP_ERROR } from './../constants/actionTypes'
 
 
@@ -24,9 +23,5 @@ export function errors(state=placeholderAppErrors, action) {
       return newErrors
   }
 }
-
-// const rootReducer = combineReducers({
-//   errors
-// })
 
 export default errors
