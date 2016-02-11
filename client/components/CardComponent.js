@@ -5,7 +5,7 @@
   */
 
 // Globals
-import React, { Component } from 'react'
+import React, { Component, PropTypes } from 'react'
 
 import DivOrEmpty from './DivOrEmptyComponent'
 
