@@ -39,7 +39,8 @@ class appContainer extends Component {
     if (this.props.currentUser.isLoggedIn) {
       navRoutes.push(  
         { text: 'ME', href: '/me' },
-        { text: 'CERTIFY', href: '/certify' })
+        { text: 'CERTIFY', href: '/certify' },
+        { text: 'LOGOUT', href: '/logout'})
     } else {
       navRoutes.push(
         { text: 'LOGIN', href: '/login' })
