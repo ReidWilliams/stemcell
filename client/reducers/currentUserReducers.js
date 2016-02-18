@@ -9,6 +9,10 @@ import {
   LOG_IN_SUCCESS, 
   LOG_IN_ERROR,
 
+  LOG_OUT_START,
+  LOG_OUT_SUCCESS,
+  LOG_OUT_ERROR,
+
   CURRENT_USER_FETCH_START, 
   CURRENT_USER_FETCH_SUCCESS, 
   CURRENT_USER_FETCH_ERROR 
@@ -43,7 +47,21 @@ export function currentUser(state=placeholderUser, action) {
       newState.isFetching = false
       return newState
 
-    
+    // LOG_OUT
+
+    case LOG_OUT_START:
+      newState.isFetching = true
+      return newState
+
+    case LOG_IN_SUCCESS:
+      newState.isLoggedIn = false
+      newState.isFetching = false
+      return newState
+
+    case LOG_OUT_ERROR:
+      newState.isFetching = false
+      return newState
+
     // CURRENT_USER_FETCH
 
     case CURRENT_USER_FETCH_START:

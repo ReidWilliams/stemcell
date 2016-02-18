@@ -16,11 +16,13 @@ module.exports = (appStore) => {
   assert(_.isObject(appStore))
 
   return (
-    <Route path="/" component={ AppContainer }>
-      <IndexRoute component={ LandingContainer } />
-      <Route path="login" component={ LoginContainer } />
-      <Route path="me" component={ CertificationsPageContainer } />
-      <Route path="certify" component={ CreateCertificationPageContainer } />
-    </Route>
+  	<Router history={browserHistory}>
+	    <Route path="/" component={ AppContainer }>
+	      <IndexRoute component={ LandingContainer } />
+	      <Route path="/login" component={ LoginContainer } />
+	      <Route path="/me" component={ CertificationsPageContainer } />
+	      <Route path="/certify" component={ CreateCertificationPageContainer } />
+	    </Route>
+	  </Router>
   )
 }
