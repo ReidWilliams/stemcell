@@ -10,5 +10,6 @@ export const ENDPOINTS = {
   SIGN_UP: apiBase + '/api/v1/user',
   USER_FETCH: apiBase + '/api/v1/user',
   CERTIFY_SOMEONE: apiBase + '/api/v1/user/certify',
-  KEYBASE_LOOKUP: 'https://keybase.io/_/api/1.0/user/autocomplete.json?q='
+  KEYBASE_LOOKUP: 'https://keybase.io/_/api/1.0/user/autocomplete.json?q=',
+  KILLSESSION: 'https://keybase.io/_/api/1.0/session/killall.json'
 }
