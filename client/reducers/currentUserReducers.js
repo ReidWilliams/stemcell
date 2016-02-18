@@ -53,7 +53,7 @@ export function currentUser(state=placeholderUser, action) {
       newState.isFetching = true
       return newState
 
-    case LOG_IN_SUCCESS:
+    case LOG_OUT_SUCCESS:
       newState.isLoggedIn = false
       newState.isFetching = false
       return newState

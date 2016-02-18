@@ -3,9 +3,9 @@
 // Globals
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { Router } from 'react-router'
+import { Router, browserHistory } from 'react-router'
 import { Provider } from 'react-redux'
-import { syncReduxAndRouter, routeReducer } from 'redux-simple-router'
+import { syncHistoryWithStore, routerReducer } from 'react-router-redux'
 import thunkMiddleware from 'redux-thunk'
 import { reducer as formReducer } from 'redux-form';
 import { combineReducers, createStore, applyMiddleware } from 'redux'
@@ -33,7 +33,7 @@ const createStoreWithMiddleware = applyMiddleware(
 
 const appStore = createStoreWithMiddleware(appReducer)
 
-syncReduxAndRouter(history, appStore)
+const history = syncHistoryWithStore(browserHistory, store)
 
 ReactDOM.render(
   <Provider store={ appStore }>

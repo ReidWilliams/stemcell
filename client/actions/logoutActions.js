@@ -41,7 +41,7 @@ export function logoutUser() {
     dispatch(logoutStart())
     dispatch(unsetAppError(ERRORS.CURRENT_USER_FETCH))
 
-    return fPost(logoutUrl)
+    return fPost(logoutUrl, {})
     	.then(fJSON)
     	.then((payload) => {
     		dispatch(logoutSuccess(payload))
