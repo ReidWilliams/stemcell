@@ -11,18 +11,18 @@ import CertificationsPageContainer from './../containers/CertificationsPageConta
 import CreateCertificationPageContainer from './../containers/CreateCertificationPageContainer'
 import LandingContainer from './../containers/LandingContainer'
 import LoginContainer from './../containers/LoginContainer'
+import LogoutContainer from '../containers/LogoutContainer'
 
 module.exports = (appStore) => {
   assert(_.isObject(appStore))
 
   return (
-  	<Router history={browserHistory}>
 	    <Route path="/" component={ AppContainer }>
 	      <IndexRoute component={ LandingContainer } />
 	      <Route path="/login" component={ LoginContainer } />
 	      <Route path="/me" component={ CertificationsPageContainer } />
 	      <Route path="/certify" component={ CreateCertificationPageContainer } />
+	      <Route path="/logout" component={ LogoutContainer } />
 	    </Route>
-	  </Router>
   )
 }
