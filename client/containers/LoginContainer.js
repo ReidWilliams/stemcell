@@ -7,7 +7,8 @@ import { connect } from 'react-redux'
 
 import LoginFormComponent from './../components/BootstrapLoginFormComponent'
 import * as actions from './../actions/loginActions'
-import { history } from './../config/history'
+//import { history } from './../config/history'
+import { routeActions } from 'react-router-redux'
 
 
 function mapStateToProps(state) {
@@ -27,7 +28,8 @@ function mapDispatchToProps(dispatch) {
       dispatch(actions.login(formObject.username, formObject.password))
       .then(() => {
         console.log('user is logged in!')
-        history.replaceState(null, '/me')
+        dispatch(routeActions.push('/me'))
+        //history.replaceState(null, '/me')
       })
     }
   }
