@@ -4,11 +4,13 @@
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
 import { connect } from 'react-redux'
+import { browserHistory } from 'react-router'
+
 
 import LoginFormComponent from './../components/BootstrapLoginFormComponent'
 import * as actions from './../actions/loginActions'
 //import { history } from './../config/history'
-import { routeActions } from 'react-router-redux'
+
 
 
 function mapStateToProps(state) {
@@ -28,7 +30,7 @@ function mapDispatchToProps(dispatch) {
       dispatch(actions.login(formObject.username, formObject.password))
       .then(() => {
         console.log('user is logged in!')
-        dispatch(routeActions.push('/me'))
+        browserHistory.push('/me')
         //history.replaceState(null, '/me')
       })
     }

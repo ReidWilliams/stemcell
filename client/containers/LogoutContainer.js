@@ -6,7 +6,7 @@
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
 import { connect } from 'react-redux'
-
+import { browserHistory } from 'react-router'
 import * as actions from './../actions/logoutActions'
 import { history } from './../config/history'
 
@@ -28,7 +28,7 @@ class LogoutContainer extends Component {
     this.props.LogoutUser()
     .then(() => {
     	console.log("User has been logged out")
-    	history.replaceState(null, '/')
+    	browserHistory.push('/')
     })
   }
 
