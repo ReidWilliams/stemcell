@@ -58,6 +58,33 @@ export function fGetExternal(url) {
   })
 }
 
+// Confirm.io Auth request
+export function confirmPostAuth()  {
+  return window.fetch('https://api.confirm.io/v1/auth', {
+    method: 'post',
+    headers: {
+      Authorization: '52029082-649f-4715-bacf-5e1048ec96f1'
+    },
+    credentials: '52029082-649f-4715-bacf-5e1048ec96f1'
+  })
+}
+
+// Confirm.io IDs Request
+export function confirmPostIds(front, back) {
+  var payload = {
+    frontImage: front
+    backImage: back
+  }
+  return window.fetch('https://api.confirm.io/v1/ids', {
+    method: 'post',
+    headers: {
+      Authorization: '52029082-649f-4715-bacf-5e1048ec96f1',
+      'Content-Type': 'multipart/form-data',
+    },
+    body: 
+  })
+}
+
 /*
   Returns a function that consumes an http response and redirects
   if the response matches a given HTTP error code. For example, 
