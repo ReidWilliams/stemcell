@@ -11,7 +11,7 @@ import {
 import * as ERRORS from './../constants/errorTypes'
 
 import { setAppError, unsetAppError } from './appErrorActions'
-import { fJSON, fPost } from './../utils/api'
+import { fJSON, fPost, confirmPostAuth } from './../utils/api'
 
 
 // LOG_IN Action Creators
@@ -54,6 +54,7 @@ export function login(username, password) {
 
     return fPost(ENDPOINTS.LOG_IN, payload)
       .then((res) => {
+        console.log(res)
         if (res.status === 401) {
           return q.reject(401)
         }

@@ -31,7 +31,6 @@ function mapDispatchToProps(dispatch) {
       .then(() => {
         console.log('user is logged in!')
         browserHistory.push('/me')
-        //history.replaceState(null, '/me')
       })
     }
   }

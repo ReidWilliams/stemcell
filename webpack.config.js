@@ -94,6 +94,7 @@ module.exports = {
     // https://github.com/glenjamin/webpack-hot-middleware 
     new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin()
+    new webpack.NoErrorsPlugin(),
+
   ]
 };

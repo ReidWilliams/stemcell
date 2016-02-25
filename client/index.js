@@ -1,13 +1,6 @@
 'use strict'
 
-// // Globals
-// import React from 'react'
-// import ReactDOM from 'react-dom'
-// import { Router, browserHistory } from 'react-router'
-// import { Provider } from 'react-redux'
-// import { syncHistory, routeReducer } from 'react-router-redux'
-
-// import { combineReducers, createStore, applyMiddleware } from 'redux'
+// Globals
 
 import React from 'react'
 import ReactDOM from 'react-dom'
@@ -34,12 +27,6 @@ const appReducer = combineReducers({
   certifyPerson: certifyPersonReducer,
   routing: routerReducer
 })
-
-// const reduxRouterMiddleware = syncHistory(browserHistory)
-// const createStoreWithMiddleware = applyMiddleware(reduxRouterMiddleware)(createStore)
-
-// const appStore = createStoreWithMiddleware(appReducer)
-
 
 const createStoreWithMiddleware = applyMiddleware(
   thunkMiddleware
